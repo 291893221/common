@@ -9,13 +9,13 @@ import lombok.Data;
 */
 public class Role {
     /**
-	* 主键
-	*/
+     * 主键
+     */
     private Integer id;
 
     /**
-	* 角色名称
-	*/
+     * 角色名称
+     */
     private String roleName;
 
 }

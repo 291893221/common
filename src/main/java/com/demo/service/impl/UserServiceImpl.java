@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;
+
     @Override
     public int deleteByPrimaryKey(Integer id) {
         return 0;

@@ -12,6 +12,7 @@ public class RoleServiceImpl implements RoleService {
 
     @Resource
     private RoleMapper roleMapper;
+
     @Override
     public int deleteByPrimaryKey(Integer id) {
         return 0;

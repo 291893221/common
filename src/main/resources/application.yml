@@ -10,5 +10,8 @@ spring:
         password: test
 mybatis:
     mapper-locations: classpath:/mapping/*.xml
+    configuration:
+      log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
 logging:
     file: D:\\2019.01.02\\4_LOG\\demo\\demo.log
+    level.com.demo.dao: debug
