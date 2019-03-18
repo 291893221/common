@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/user")
 public class UserController {
@@ -23,18 +25,31 @@ public class UserController {
     }
 
     /**
-     * http://localhost/demo/user/test
+     * http://localhost/demo/user/insert
      *
      * @return String
      */
-    @RequestMapping(value = "/test")
+    @RequestMapping(value = "/insert")
     @ResponseBody
-    public String test() {
+    public String insert() {
         User user = new User();
         user.setName("test");
         user.setPassword("test");
         userService.insert(user);
         logger.info("test {}", user);
         return "test";
+    }
+
+    /**
+     * http://localhost/demo/user/select
+     *      *
+     * @param user
+     * @return
+     */
+    @RequestMapping(value = "/select")
+    @ResponseBody
+    public List<User> selectByPrimaryKey(User user) {
+        List<User> list = userService.select(user);
+        return list;
     }
 }

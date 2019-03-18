@@ -6,6 +6,7 @@ import com.demo.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -40,5 +41,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public int updateByPrimaryKey(User record) {
         return 0;
+    }
+
+    @Override
+    public List<User> select(User user) {
+        return userMapper.select(user);
     }
 }
