@@ -42,14 +42,12 @@ public class UserController {
 
     /**
      * http://localhost/demo/user/select
-     *      *
-     * @param user
-     * @return
+     * @param user id
+     * @return user
      */
     @RequestMapping(value = "/select")
     @ResponseBody
-    public List<User> selectByPrimaryKey(User user) {
-        List<User> list = userService.select(user);
-        return list;
+    public List<User> select(User user) {
+        return userService.select(user);
     }
 }
