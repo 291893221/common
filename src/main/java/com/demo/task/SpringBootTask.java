@@ -1,6 +1,5 @@
 package com.demo.task;
 
-import com.demo.controller.RoleController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -11,7 +10,7 @@ import java.util.Date;
 
 @Component
 public class SpringBootTask {
-    private Logger logger = LoggerFactory.getLogger(RoleController.class);
+    private Logger logger = LoggerFactory.getLogger(SpringBootTask.class);
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.mm.dd HH:mm:ss");
 
