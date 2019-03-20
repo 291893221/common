@@ -26,18 +26,17 @@ public class UserController {
 
     /**
      * http://localhost/demo/user/insert
-     *
      * @return String
      */
     @RequestMapping(value = "/insert")
     @ResponseBody
-    public String insert() {
+    public User insert(String username, String password) {
         User user = new User();
-        user.setName("test");
-        user.setPassword("test");
+        user.setName(username);
+        user.setPassword(password);
         userService.insert(user);
-        logger.info("test {}", user);
-        return "test";
+        logger.info("user {}", user);
+        return user;
     }
 
     /**

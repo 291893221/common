@@ -24,7 +24,6 @@ public class RoleController {
 
     /**
      * http://localhost/demo/role/insert
-     *
      * @return String
      */
     @RequestMapping(value = "/insert")
