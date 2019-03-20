@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int deleteByPrimaryKey(Integer id) {
-        return 0;
+        return userMapper.deleteByPrimaryKey(id);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User selectByPrimaryKey(Integer id) {
-        return null;
+        return userMapper.selectByPrimaryKey(id);
     }
 
     @Override
