@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/redis")
+@RequestMapping("/redis")
 public class RedisController {
 
     private Logger logger = LoggerFactory.getLogger(RedisController.class);
@@ -21,7 +21,7 @@ public class RedisController {
      * @param key
      * @param value
      */
-    @RequestMapping(value = "/set")
+    @RequestMapping("/set")
     public void set(String key, String value) {
         logger.info("redis set {} {}", key, value);
         redisService.set(key, value);

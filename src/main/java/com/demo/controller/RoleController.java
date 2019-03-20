@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/role")
+@RequestMapping("/role")
 public class RoleController {
 
     private Logger logger = LoggerFactory.getLogger(RoleController.class);
@@ -26,7 +26,7 @@ public class RoleController {
      * http://localhost/demo/role/insert
      * @return String
      */
-    @RequestMapping(value = "/insert")
+    @RequestMapping("/insert")
     @ResponseBody
     public String insert() {
         Role role = new Role();

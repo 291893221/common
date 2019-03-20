@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/user")
+@RequestMapping("/user")
 public class UserController {
 
     private Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -25,10 +25,10 @@ public class UserController {
     }
 
     /**
-     * http://localhost/demo/user/insert
+     * http://localhost/demo/user/insert?username=zhangsan&password=123456
      * @return String
      */
-    @RequestMapping(value = "/insert")
+    @RequestMapping("/insert")
     @ResponseBody
     public User insert(String username, String password) {
         User user = new User();
@@ -44,7 +44,7 @@ public class UserController {
      * @param user id
      * @return user
      */
-    @RequestMapping(value = "/select")
+    @RequestMapping("/select")
     @ResponseBody
     public List<User> select(User user) {
         return userService.select(user);

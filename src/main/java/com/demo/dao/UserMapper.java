@@ -2,6 +2,7 @@ package com.demo.dao;
 
 import com.demo.model.User;
 import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +13,7 @@ import java.util.List;
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
 
+    @CacheEvict(key ="users",allEntries=true)
     int insert(User record);
 
     int insertSelective(User record);
