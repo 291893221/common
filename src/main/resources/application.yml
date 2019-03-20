@@ -8,10 +8,12 @@ spring:
         url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
         username: test
         password: test
+    redis:
+        password: root
 mybatis:
     mapper-locations: classpath:/mapping/*.xml
     configuration:
-      log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+        log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
 logging:
     file: D:\\2019.01.02\\4_LOG\\demo\\demo.log
     level.com.demo.dao: debug
