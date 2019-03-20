@@ -16,7 +16,7 @@ public class RedisServiceTest extends DemoApplicationTests {
 
     @Test
     public void set() {
-        redisTemplate.opsForValue().set("hello", "world");
+        redisTemplate.opsForValue().set("demo", "hello world");
     }
 
     @Test
