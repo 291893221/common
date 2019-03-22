@@ -2,14 +2,13 @@ package com.demo.controller;
 
 import com.demo.model.User;
 import com.demo.service.UserService;
+import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -37,13 +36,13 @@ public class UserController {
     }
 
     /**
-     * http://localhost/demo/user/select?id=19
+     * http://localhost/demo/user/select?pageNum=3&pageSize=10
      * @param user id
      * @return user
      */
     @RequestMapping("/select")
     @ResponseBody
-    public List<User> select(User user) {
+    public PageInfo<User> select(User user) {
         return userService.select(user);
     }
 

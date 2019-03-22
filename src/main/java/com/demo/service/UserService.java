@@ -1,8 +1,7 @@
 package com.demo.service;
 
 import com.demo.model.User;
-
-import java.util.List;
+import com.github.pagehelper.PageInfo;
 
 public interface UserService {
     int deleteByPrimaryKey(Integer id);
@@ -17,5 +16,5 @@ public interface UserService {
 
     int updateByPrimaryKey(User record);
 
-    List<User> select(User user);
+    PageInfo<User> select(User user);
 }

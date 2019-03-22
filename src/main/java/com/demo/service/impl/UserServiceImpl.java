@@ -3,6 +3,8 @@ package com.demo.service.impl;
 import com.demo.dao.UserMapper;
 import com.demo.model.User;
 import com.demo.service.UserService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -44,7 +46,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> select(User user) {
-        return userMapper.select(user);
+    public PageInfo<User> select(User user) {
+        PageHelper.startPage(user.getPageNum(), user.getPageSize());
+        List<User> userList = userMapper.select(user);
+        PageInfo<User> pageInfo = new PageInfo(userList);
+        return pageInfo;
     }
 }
