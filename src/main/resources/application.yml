@@ -11,7 +11,7 @@ spring:
     redis:
         password: root
     profiles:
-        active: @activeProfile@
+        active: dev
 mybatis:
     mapper-locations: classpath:/mapping/*.xml
     configuration:
