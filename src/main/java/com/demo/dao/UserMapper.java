@@ -29,5 +29,4 @@ public interface UserMapper {
     @Cacheable(key ="#p0", condition="#p0.id != null")
     List<User> select(User user);
 
-    int selectCount(User user);
 }
