@@ -12,10 +12,10 @@ import java.util.Date;
 public class SpringBootTask {
     private Logger logger = LoggerFactory.getLogger(SpringBootTask.class);
 
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.mm.dd HH:mm:ss");
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
 
     @Scheduled(cron = "0 */1 * * * ?")
     public void test() {
-        logger.info("SpringBootTask 定时任务 {}", dateFormat.format(new Date()));
+        logger.info("SpringBootTask current time:{}", dateFormat.format(new Date()));
     }
 }
