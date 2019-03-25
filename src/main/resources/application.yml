@@ -10,6 +10,8 @@ spring:
         password: test
     redis:
         password: root
+    profiles:
+        active: @activeProfile@
 mybatis:
     mapper-locations: classpath:/mapping/*.xml
     configuration:
