@@ -24,7 +24,7 @@ public class UserController {
     }
 
     /**
-     * http://localhost/demo/user/insert?username=zhangsan&password=123456
+     * http://localhost/demo/user/insert?name=zhangsan&password=123456
      * @return String
      */
     @RequestMapping("/insert")
