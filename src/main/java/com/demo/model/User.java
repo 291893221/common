@@ -3,7 +3,7 @@ package com.demo.model;
 import lombok.Data;
 
 @Data
-public class User extends PageEntity{
+public class User extends PageEntity {
 
     private Integer id;
 
