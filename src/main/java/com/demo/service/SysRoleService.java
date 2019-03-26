@@ -17,20 +17,5 @@ public class SysRoleService {
     public int insert(SysRole record) {
         return sysRoleMapper.insert(record);
     }
-
-    public int insertSelective(SysRole record) {
-        return 0;
-    }
-
-    public SysRole selectByPrimaryKey(Integer id) {
-        return null;
-    }
-
-    public int updateByPrimaryKeySelective(SysRole record) {
-        return 0;
-    }
-
-    public int updateByPrimaryKey(SysRole record) {
-        return 0;
-    }
+    
 }
