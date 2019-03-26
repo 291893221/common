@@ -18,7 +18,7 @@ public class SysUserService {
         return sysUserMapper.insert(record);
     }
 
-    public SysUser selectByName(String username) {
-        return sysUserMapper.selectByName(username);
+    public SysUser selectByUsername(String username) {
+        return sysUserMapper.selectByUsername(username);
     }
 }

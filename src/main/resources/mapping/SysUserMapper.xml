@@ -60,7 +60,7 @@
       `password` = #{password,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from t_sys_user
