@@ -33,4 +33,10 @@
       </if>
     </trim>
   </insert>
+  <select id="listByUserId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_sys_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
 </mapper>

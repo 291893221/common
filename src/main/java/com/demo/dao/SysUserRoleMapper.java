@@ -4,6 +4,8 @@ import com.demo.model.SysUserRole;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
 * Created by Mybatis Generator 2019/03/26
 */
@@ -14,4 +16,6 @@ public interface SysUserRoleMapper {
     int insert(SysUserRole record);
 
     int insertSelective(SysUserRole record);
+
+    List<SysUserRole> listByUserId(Integer id);
 }
