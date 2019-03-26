@@ -14,33 +14,11 @@ public class SysUserService {
     @Resource
     private SysUserMapper sysUserMapper;
 
-
-    public int deleteByPrimaryKey(Integer id) {
-        return 0;
-    }
-
-
     public int insert(SysUser record) {
         return sysUserMapper.insert(record);
     }
 
-
-    public int insertSelective(SysUser record) {
-        return 0;
-    }
-
-
-    public SysUser selectByPrimaryKey(Integer id) {
-        return null;
-    }
-
-
-    public int updateByPrimaryKeySelective(SysUser record) {
-        return 0;
-    }
-
-
-    public int updateByPrimaryKey(SysUser record) {
-        return 0;
+    public SysUser selectByName(String username) {
+        return sysUserMapper.selectByName(username);
     }
 }
