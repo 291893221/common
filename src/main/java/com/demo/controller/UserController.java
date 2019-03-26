@@ -3,18 +3,16 @@ package com.demo.controller;
 import com.demo.model.User;
 import com.demo.service.UserService;
 import com.github.pagehelper.PageInfo;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
-    private Logger logger = LoggerFactory.getLogger(UserController.class);
 
     private UserService userService;
 
@@ -31,7 +29,7 @@ public class UserController {
     @ResponseBody
     public User insert(User user) {
         userService.insert(user);
-        logger.info("user {}", user);
+        log.info("user {}", user);
         return user;
     }
 

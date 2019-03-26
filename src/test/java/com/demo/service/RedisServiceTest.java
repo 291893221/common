@@ -1,15 +1,13 @@
 package com.demo.service;
 
 import com.demo.DemoApplicationTests;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 
+@Slf4j
 public class RedisServiceTest extends DemoApplicationTests {
-
-    private Logger logger = LoggerFactory.getLogger(RedisServiceTest.class);
 
     @Autowired
     private RedisTemplate redisTemplate;
@@ -22,6 +20,6 @@ public class RedisServiceTest extends DemoApplicationTests {
     @Test
     public void get() {
         Object demo = redisTemplate.opsForValue().get("demo");
-        logger.info(demo.toString());
+        log.info(demo.toString());
     }
 }
