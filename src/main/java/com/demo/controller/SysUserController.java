@@ -22,10 +22,10 @@ public class SysUserController {
      */
     @RequestMapping("/insert")
     @ResponseBody
-    public SysUser insert(SysUser sysUser) {
-        sysUserService.insert(sysUser);
-        log.info("sysUser {}", sysUser);
-        return sysUser;
+    public SysUser insert(SysUser record) {
+        sysUserService.insert(record);
+        log.info("sysUser {}", record);
+        return record;
     }
 
 }
