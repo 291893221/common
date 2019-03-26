@@ -17,5 +17,8 @@ public class SysRoleService {
     public int insert(SysRole record) {
         return sysRoleMapper.insert(record);
     }
-    
+
+    public SysRole selectByPrimaryKey(Integer roleId) {
+        return sysRoleMapper.selectByPrimaryKey(roleId);
+    }
 }
