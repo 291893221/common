@@ -1,17 +1,36 @@
 package com.demo.service;
 
+import com.demo.dao.SysRoleMapper;
 import com.demo.model.SysRole;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
-public interface SysRoleService {
-    int deleteByPrimaryKey(Integer id);
+import javax.annotation.Resource;
 
-    int insert(SysRole record);
+@Slf4j
+@Service
+public class SysRoleService {
 
-    int insertSelective(SysRole record);
+    @Resource
+    private SysRoleMapper sysRoleMapper;
 
-    SysRole selectByPrimaryKey(Integer id);
+    public int insert(SysRole record) {
+        return sysRoleMapper.insert(record);
+    }
 
-    int updateByPrimaryKeySelective(SysRole record);
+    public int insertSelective(SysRole record) {
+        return 0;
+    }
 
-    int updateByPrimaryKey(SysRole record);
+    public SysRole selectByPrimaryKey(Integer id) {
+        return null;
+    }
+
+    public int updateByPrimaryKeySelective(SysRole record) {
+        return 0;
+    }
+
+    public int updateByPrimaryKey(SysRole record) {
+        return 0;
+    }
 }
