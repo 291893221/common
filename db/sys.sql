@@ -29,6 +29,14 @@ CREATE TABLE `t_sys_user_role` (
 	CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `t_sys_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = INNODB DEFAULT CHARSET = utf8;
 
+CREATE TABLE `persistent_logins` (
+  `username` varchar(64) NOT NULL,
+  `series` varchar(64) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `last_used` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`series`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 DELETE FROM `t_sys_role`;
 DELETE FROM `t_sys_user`;
 DELETE FROM `t_sys_user_role`;
