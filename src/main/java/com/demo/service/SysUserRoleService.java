@@ -11,14 +11,14 @@ import java.util.List;
 @Slf4j
 @Service
 public class SysUserRoleService {
-    @Resource
-    private SysUserRoleMapper sysUserRoleMapper;
+	@Resource
+	private SysUserRoleMapper sysUserRoleMapper;
 
-    public int insert(SysUserRole record){
-        return sysUserRoleMapper.insert(record);
-    }
+	public int insert(SysUserRole record) {
+		return sysUserRoleMapper.insert(record);
+	}
 
-    public List<SysUserRole> listByUserId(Integer id) {
-        return sysUserRoleMapper.listByUserId(id);
-    }
+	public List<SysUserRole> listByUserId(Integer id) {
+		return sysUserRoleMapper.listByUserId(id);
+	}
 }

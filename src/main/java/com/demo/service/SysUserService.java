@@ -11,14 +11,14 @@ import javax.annotation.Resource;
 @Service
 public class SysUserService {
 
-    @Resource
-    private SysUserMapper sysUserMapper;
+	@Resource
+	private SysUserMapper sysUserMapper;
 
-    public int insert(SysUser record) {
-        return sysUserMapper.insert(record);
-    }
+	public int insert(SysUser record) {
+		return sysUserMapper.insert(record);
+	}
 
-    public SysUser selectByUsername(String username) {
-        return sysUserMapper.selectByUsername(username);
-    }
+	public SysUser selectByUsername(String username) {
+		return sysUserMapper.selectByUsername(username);
+	}
 }

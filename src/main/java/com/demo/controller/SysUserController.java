@@ -13,19 +13,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/sys/user")
 public class SysUserController {
 
-    @Autowired
-    private SysUserService sysUserService;
+	@Autowired
+	private SysUserService sysUserService;
 
-    /**
-     * http://localhost/demo/sys/user/insert?username=zhangsan&password=123456
-     * @return String
-     */
-    @RequestMapping("/insert")
-    @ResponseBody
-    public SysUser insert(SysUser record) {
-        sysUserService.insert(record);
-        log.info("sysUser {}", record);
-        return record;
-    }
+	/**
+	 * http://localhost/demo/sys/user/insert?username=zhangsan&password=123456
+	 *
+	 * @return String
+	 */
+	@RequestMapping("/insert")
+	@ResponseBody
+	public SysUser insert(SysUser record) {
+		sysUserService.insert(record);
+		log.info("sysUser {}", record);
+		return record;
+	}
 
 }

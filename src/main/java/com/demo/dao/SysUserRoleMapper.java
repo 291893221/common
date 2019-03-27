@@ -7,15 +7,15 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
-* Created by Mybatis Generator 2019/03/26
-*/
+ * Created by Mybatis Generator 2019/03/26
+ */
 @Mapper
 public interface SysUserRoleMapper {
-    int deleteByPrimaryKey(@Param("userId") Integer userId, @Param("roleId") Integer roleId);
+	int deleteByPrimaryKey(@Param("userId") Integer userId, @Param("roleId") Integer roleId);
 
-    int insert(SysUserRole record);
+	int insert(SysUserRole record);
 
-    int insertSelective(SysUserRole record);
+	int insertSelective(SysUserRole record);
 
-    List<SysUserRole> listByUserId(Integer id);
+	List<SysUserRole> listByUserId(Integer id);
 }

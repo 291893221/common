@@ -11,27 +11,29 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/redis")
 public class RedisController {
 
-    @Autowired
-    private RedisService redisService;
+	@Autowired
+	private RedisService redisService;
 
-    /**
-     * http://localhost/demo/redis/set?key=demo&value=helloworld
-     * @param key
-     * @param value
-     */
-    @RequestMapping("/set")
-    public void set(String key, String value) {
-        log.info("redis set {} {}", key, value);
-        redisService.set(key, value);
-    }
+	/**
+	 * http://localhost/demo/redis/set?key=demo&value=helloworld
+	 *
+	 * @param key
+	 * @param value
+	 */
+	@RequestMapping("/set")
+	public void set(String key, String value) {
+		log.info("redis set {} {}", key, value);
+		redisService.set(key, value);
+	}
 
-    /**
-     * http://localhost/demo/redis/get?key=demo
-     * @param key
-     * @return
-     */
-    @RequestMapping("/get")
-    public String get(String key) {
-        return redisService.get(key);
-    }
+	/**
+	 * http://localhost/demo/redis/get?key=demo
+	 *
+	 * @param key
+	 * @return
+	 */
+	@RequestMapping("/get")
+	public String get(String key) {
+		return redisService.get(key);
+	}
 }

@@ -11,10 +11,10 @@ import java.util.Date;
 @Component
 public class SpringBootTask {
 
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
 
-    @Scheduled(cron = "0 */1 * * * ?")
-    public void logCurrentTime() {
-        log.info("SpringBootTask current time:{}", dateFormat.format(new Date()));
-    }
+	@Scheduled(cron = "0 */1 * * * ?")
+	public void logCurrentTime() {
+		log.info("SpringBootTask current time:{}", dateFormat.format(new Date()));
+	}
 }

@@ -5,10 +5,10 @@ import lombok.Data;
 @Data
 public class User extends PageEntity {
 
-    private Integer id;
+	private Integer id;
 
-    private String name;
+	private String name;
 
-    private String password;
+	private String password;
 
 }

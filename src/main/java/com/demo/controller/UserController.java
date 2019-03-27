@@ -14,55 +14,59 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
 
-    private UserService userService;
+	private UserService userService;
 
-    @Autowired
-    public void setUserService(UserService userService) {
-        this.userService = userService;
-    }
+	@Autowired
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
 
-    /**
-     * http://localhost/demo/user/insert?name=zhangsan&password=123456
-     * @return String
-     */
-    @RequestMapping("/insert")
-    @ResponseBody
-    public User insert(User user) {
-        userService.insert(user);
-        log.info("user {}", user);
-        return user;
-    }
+	/**
+	 * http://localhost/demo/user/insert?name=zhangsan&password=123456
+	 *
+	 * @return String
+	 */
+	@RequestMapping("/insert")
+	@ResponseBody
+	public User insert(User user) {
+		userService.insert(user);
+		log.info("user {}", user);
+		return user;
+	}
 
-    /**
-     * http://localhost/demo/user/select?pageNum=3&pageSize=10
-     * @param user id
-     * @return user
-     */
-    @RequestMapping("/select")
-    @ResponseBody
-    public PageInfo<User> select(User user) {
-        return userService.select(user);
-    }
+	/**
+	 * http://localhost/demo/user/select?pageNum=3&pageSize=10
+	 *
+	 * @param user id
+	 * @return user
+	 */
+	@RequestMapping("/select")
+	@ResponseBody
+	public PageInfo<User> select(User user) {
+		return userService.select(user);
+	}
 
-    /**
-     * http://localhost/demo/user/selectByPrimaryKey?id=10
-     * @param id
-     * @return
-     */
-    @RequestMapping("/selectByPrimaryKey")
-    @ResponseBody
-    public User selectByPrimaryKey(Integer id) {
-        return userService.selectByPrimaryKey(id);
-    }
+	/**
+	 * http://localhost/demo/user/selectByPrimaryKey?id=10
+	 *
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("/selectByPrimaryKey")
+	@ResponseBody
+	public User selectByPrimaryKey(Integer id) {
+		return userService.selectByPrimaryKey(id);
+	}
 
-    /**
-     * http://localhost/demo/user/deleteByPrimaryKey?id=10
-     * @param id
-     * @return
-     */
-    @RequestMapping("/deleteByPrimaryKey")
-    @ResponseBody
-    public int deleteByPrimaryKey(Integer id) {
-        return userService.deleteByPrimaryKey(id);
-    }
+	/**
+	 * http://localhost/demo/user/deleteByPrimaryKey?id=10
+	 *
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("/deleteByPrimaryKey")
+	@ResponseBody
+	public int deleteByPrimaryKey(Integer id) {
+		return userService.deleteByPrimaryKey(id);
+	}
 }

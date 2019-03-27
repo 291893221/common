@@ -8,16 +8,16 @@ import org.springframework.stereotype.Service;
 @Service("redisService")
 public class RedisServiceImpl implements RedisService {
 
-    @Autowired
-    private RedisTemplate redisTemplate;
+	@Autowired
+	private RedisTemplate redisTemplate;
 
-    @Override
-    public void set(String key, String value) {
-        redisTemplate.opsForValue().set(key, value);
-    }
+	@Override
+	public void set(String key, String value) {
+		redisTemplate.opsForValue().set(key, value);
+	}
 
-    @Override
-    public String get(String key) {
-        return redisTemplate.opsForValue().get(key).toString();
-    }
+	@Override
+	public String get(String key) {
+		return redisTemplate.opsForValue().get(key).toString();
+	}
 }

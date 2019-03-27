@@ -13,8 +13,8 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @MapperScan(basePackages = {"com.demo.dao"})
 public class DemoApplicationTests {
 
-    @Test
-    public void contextLoads() {
-    }
+	@Test
+	public void contextLoads() {
+	}
 
 }

@@ -4,21 +4,21 @@ import com.demo.model.SysUser;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
-* Created by Mybatis Generator 2019/03/26
-*/
+ * Created by Mybatis Generator 2019/03/26
+ */
 @Mapper
 public interface SysUserMapper {
-    int deleteByPrimaryKey(Integer id);
+	int deleteByPrimaryKey(Integer id);
 
-    int insert(SysUser record);
+	int insert(SysUser record);
 
-    int insertSelective(SysUser record);
+	int insertSelective(SysUser record);
 
-    SysUser selectByPrimaryKey(Integer id);
+	SysUser selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(SysUser record);
+	int updateByPrimaryKeySelective(SysUser record);
 
-    int updateByPrimaryKey(SysUser record);
+	int updateByPrimaryKey(SysUser record);
 
-    SysUser selectByUsername(String username);
+	SysUser selectByUsername(String username);
 }

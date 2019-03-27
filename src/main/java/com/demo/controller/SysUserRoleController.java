@@ -13,19 +13,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/sys/userRole")
 public class SysUserRoleController {
 
-    @Autowired
-    private SysUserRoleService sysUserRoleService;
+	@Autowired
+	private SysUserRoleService sysUserRoleService;
 
-    /**
-     * http://localhost/demo/sys/userRole/insert?userId=3&roleId=1
-     * @return String
-     */
-    @RequestMapping("/insert")
-    @ResponseBody
-    public SysUserRole insert(SysUserRole record) {
-        sysUserRoleService.insert(record);
-        log.info("SysUserRole {}", record);
-        return record;
-    }
+	/**
+	 * http://localhost/demo/sys/userRole/insert?userId=3&roleId=1
+	 *
+	 * @return String
+	 */
+	@RequestMapping("/insert")
+	@ResponseBody
+	public SysUserRole insert(SysUserRole record) {
+		sysUserRoleService.insert(record);
+		log.info("SysUserRole {}", record);
+		return record;
+	}
 
 }

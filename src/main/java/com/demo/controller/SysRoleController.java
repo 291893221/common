@@ -13,18 +13,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/sys/role")
 public class SysRoleController {
 
-    @Autowired
-    private SysRoleService sysRoleService;
+	@Autowired
+	private SysRoleService sysRoleService;
 
-    /**
-     * http://localhost/demo/sys/role/insert?roleName=游客
-     * @return String
-     */
-    @RequestMapping("/insert")
-    @ResponseBody
-    public String insert(SysRole record) {
-        log.info("sysRole {}", record);
-        sysRoleService.insert(record);
-        return "sysRole";
-    }
+	/**
+	 * http://localhost/demo/sys/role/insert?roleName=游客
+	 *
+	 * @return String
+	 */
+	@RequestMapping("/insert")
+	@ResponseBody
+	public String insert(SysRole record) {
+		log.info("sysRole {}", record);
+		sysRoleService.insert(record);
+		return "sysRole";
+	}
 }

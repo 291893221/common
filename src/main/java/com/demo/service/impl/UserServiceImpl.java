@@ -12,44 +12,44 @@ import java.util.List;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
-    @Resource
-    private UserMapper userMapper;
+	@Resource
+	private UserMapper userMapper;
 
-    @Override
-    public int deleteByPrimaryKey(Integer id) {
-        return userMapper.deleteByPrimaryKey(id);
-    }
+	@Override
+	public int deleteByPrimaryKey(Integer id) {
+		return userMapper.deleteByPrimaryKey(id);
+	}
 
-    @Override
-    public int insert(User record) {
-        return userMapper.insert(record);
-    }
+	@Override
+	public int insert(User record) {
+		return userMapper.insert(record);
+	}
 
-    @Override
-    public int insertSelective(User record) {
-        return 0;
-    }
+	@Override
+	public int insertSelective(User record) {
+		return 0;
+	}
 
-    @Override
-    public User selectByPrimaryKey(Integer id) {
-        return userMapper.selectByPrimaryKey(id);
-    }
+	@Override
+	public User selectByPrimaryKey(Integer id) {
+		return userMapper.selectByPrimaryKey(id);
+	}
 
-    @Override
-    public int updateByPrimaryKeySelective(User record) {
-        return 0;
-    }
+	@Override
+	public int updateByPrimaryKeySelective(User record) {
+		return 0;
+	}
 
-    @Override
-    public int updateByPrimaryKey(User record) {
-        return 0;
-    }
+	@Override
+	public int updateByPrimaryKey(User record) {
+		return 0;
+	}
 
-    @Override
-    public PageInfo<User> select(User user) {
-        PageHelper.startPage(user.getPageNum(), user.getPageSize());
-        List<User> userList = userMapper.select(user);
-        PageInfo<User> pageInfo = new PageInfo(userList);
-        return pageInfo;
-    }
+	@Override
+	public PageInfo<User> select(User user) {
+		PageHelper.startPage(user.getPageNum(), user.getPageSize());
+		List<User> userList = userMapper.select(user);
+		PageInfo<User> pageInfo = new PageInfo(userList);
+		return pageInfo;
+	}
 }

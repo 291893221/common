@@ -11,14 +11,14 @@ import javax.annotation.Resource;
 @Service
 public class SysRoleService {
 
-    @Resource
-    private SysRoleMapper sysRoleMapper;
+	@Resource
+	private SysRoleMapper sysRoleMapper;
 
-    public int insert(SysRole record) {
-        return sysRoleMapper.insert(record);
-    }
+	public int insert(SysRole record) {
+		return sysRoleMapper.insert(record);
+	}
 
-    public SysRole selectByPrimaryKey(Integer roleId) {
-        return sysRoleMapper.selectByPrimaryKey(roleId);
-    }
+	public SysRole selectByPrimaryKey(Integer roleId) {
+		return sysRoleMapper.selectByPrimaryKey(roleId);
+	}
 }
