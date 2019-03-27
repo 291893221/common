@@ -29,11 +29,20 @@ CREATE TABLE `t_sys_user_role` (
 	CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `t_sys_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = INNODB DEFAULT CHARSET = utf8;
 
-INSERT INTO `t_sys_role` VALUES ('1', 'ROLE_ADMIN');
-INSERT INTO `t_sys_role` VALUES ('2', 'ROLE_USER');
+DELETE FROM `t_sys_role`;
+DELETE FROM `t_sys_user`;
+DELETE FROM `t_sys_user_role`;
 
-INSERT INTO `t_sys_user` VALUES ('1', 'admin', '123');
-INSERT INTO `t_sys_user` VALUES ('2', 'test', '123');
+INSERT INTO `t_sys_role` VALUES ('1', 'ROLE_ROOT');
+INSERT INTO `t_sys_role` VALUES ('2', 'ROLE_ADMIN');
+INSERT INTO `t_sys_role` VALUES ('3', 'ROLE_USER');
+
+INSERT INTO `t_sys_user` VALUES ('1', 'root', 'root');
+INSERT INTO `t_sys_user` VALUES ('2', 'admin', '123');
+INSERT INTO `t_sys_user` VALUES ('3', 'test', '123');
 
 INSERT INTO `t_sys_user_role` VALUES ('1', '1');
+INSERT INTO `t_sys_user_role` VALUES ('1', '2');
+INSERT INTO `t_sys_user_role` VALUES ('1', '3');
 INSERT INTO `t_sys_user_role` VALUES ('2', '2');
+INSERT INTO `t_sys_user_role` VALUES ('3', '3');
