@@ -13,6 +13,7 @@ import java.util.List;
 public class SysUserRoleService {
     @Resource
     private SysUserRoleMapper sysUserRoleMapper;
+
     public int insert(SysUserRole record){
         return sysUserRoleMapper.insert(record);
     }
