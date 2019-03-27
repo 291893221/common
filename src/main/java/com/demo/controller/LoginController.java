@@ -2,10 +2,15 @@ package com.demo.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Controller
 @Slf4j
@@ -19,7 +24,7 @@ public class LoginController {
 	}
 
 	/**
-	 * http://localhost/demo/login
+	 * http://localhost/login
 	 *
 	 * @return
 	 */
@@ -29,7 +34,7 @@ public class LoginController {
 	}
 
 	/**
-	 * http://localhost/demo/admin
+	 * http://localhost/admin
 	 *
 	 * @return
 	 */
@@ -41,7 +46,7 @@ public class LoginController {
 	}
 
 	/**
-	 * http://localhost/demo/user
+	 * http://localhost/user
 	 *
 	 * @return
 	 */
@@ -50,5 +55,22 @@ public class LoginController {
 	@PreAuthorize("hasRole('ROLE_USER')")
 	public String printUser() {
 		return "拥有ROLE_USER角色";
+	}
+
+	/**
+	 * http://localhost/login/error
+	 *
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping("/login/error")
+	public void loginError(HttpServletRequest request, HttpServletResponse response) {
+		response.setContentType("text/html;charset=utf-8");
+		AuthenticationException exception = (AuthenticationException) request.getSession().getAttribute("SPRING_SECURITY_LAST_EXCEPTION");
+		try {
+			response.getWriter().write(exception.toString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
