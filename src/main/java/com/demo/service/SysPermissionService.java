@@ -10,13 +10,13 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class SysPermissionService {
+public class SysPermissionService extends BaseService<SysPermission>{
 	@Resource
 	private SysPermissionMapper sysPermissionMapper;
 
-	public int insert(SysPermission record) {
-		return sysPermissionMapper.insert(record);
-	}
+	//public int insert(SysPermission record) {
+	//	return sysPermissionMapper.insert(record);
+	//}
 
 	public List<SysPermission> list(SysPermission record){
 		return sysPermissionMapper.list(record);
