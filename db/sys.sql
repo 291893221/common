@@ -37,6 +37,16 @@ CREATE TABLE `persistent_logins` (
   PRIMARY KEY (`series`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `t_sys_permission` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `url` varchar(255) DEFAULT NULL,
+  `role_id` int(11) DEFAULT NULL,
+  `permission` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_roleId` (`role_id`),
+  CONSTRAINT `fk_roleId` FOREIGN KEY (`role_id`) REFERENCES `t_sys_role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
 DELETE FROM `t_sys_role`;
 DELETE FROM `t_sys_user`;
 DELETE FROM `t_sys_user_role`;
