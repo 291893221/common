@@ -52,6 +52,10 @@ CREATE TABLE `t_sys_permission` (
 
 DELETE FROM `t_sys_permission`;
 
+INSERT INTO `test`.`t_sys_permission` (`id`, `url`, `role_id`, `permission`) VALUES ('1', '/admin', '1', 'c,r,u,d');
+INSERT INTO `test`.`t_sys_permission` (`id`, `url`, `role_id`, `permission`) VALUES ('2', '/admin', '2', 'c,r');
+INSERT INTO `test`.`t_sys_permission` (`id`, `url`, `role_id`, `permission`) VALUES ('3', '/admin', '3', 'r');
+
 DELETE FROM `t_sys_role`;
 DELETE FROM `t_sys_user`;
 DELETE FROM `t_sys_user_role`;
