@@ -1,6 +1,10 @@
 package com.demo.dao;
 
-public interface BaseMapper<T> {
+import com.demo.model.PageEntity;
+
+import java.util.List;
+
+public interface BaseMapper<T extends PageEntity> {
     int deleteByPrimaryKey(Integer id);
 
     int insert(T t);
@@ -12,4 +16,6 @@ public interface BaseMapper<T> {
     int updateByPrimaryKeySelective(T t);
 
     int updateByPrimaryKey(T t);
+
+    List<T> list(T t);
 }
