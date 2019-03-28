@@ -73,4 +73,14 @@
       permission = #{permission,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="list" parameterType="com.demo.model.SysPermission" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from
+    t_sys_permission t
+    where 1 = 1
+    <if test="roleId != null">
+    and t.role_id = #{roleId,jdbcType=INTEGER}
+    </if>
+  </select>
 </mapper>

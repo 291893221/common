@@ -6,7 +6,7 @@ import lombok.Data;
 * Created by Mybatis Generator 2019/03/28
 */
 @Data
-public class SysPermission {
+public class SysPermission extends PageEntity {
     private Integer id;
 
     private String url;
