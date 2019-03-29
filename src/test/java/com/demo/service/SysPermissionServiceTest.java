@@ -28,8 +28,8 @@ public class SysPermissionServiceTest extends DemoApplicationTests {
 		SysPermission sysPermission = new SysPermission();
 		sysPermission.setRoleId(1);
 		List<SysPermission> sysPermissions = sysPermissionService.list(sysPermission);
-		sysPermissions.stream().forEach(p->
-			log.info("Test list : " + p.toString())
+		sysPermissions.stream().forEach(p ->
+				log.info("Test list : " + p.toString())
 		);
 	}
 }

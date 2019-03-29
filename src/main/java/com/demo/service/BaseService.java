@@ -43,7 +43,7 @@ public class BaseService<T extends PageEntity> {
 		return new PageInfo(list);
 	}
 
-	public List<T> list(T record){
+	public List<T> list(T record) {
 		return mapper.list(record);
 	}
 

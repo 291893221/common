@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 
 @Slf4j
 @Service
-public class SysPermissionService extends BaseService<SysPermission>{
+public class SysPermissionService extends BaseService<SysPermission> {
 	@Resource
 	private SysPermissionMapper sysPermissionMapper;
 

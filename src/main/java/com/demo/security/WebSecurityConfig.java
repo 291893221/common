@@ -36,7 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	@Bean
-	public DefaultWebSecurityExpressionHandler webSecurityExpressionHandler(){
+	public DefaultWebSecurityExpressionHandler webSecurityExpressionHandler() {
 		DefaultWebSecurityExpressionHandler handler = new DefaultWebSecurityExpressionHandler();
 		handler.setPermissionEvaluator(new CustomPermissionEvaluator());
 		return handler;
