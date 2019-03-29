@@ -11,35 +11,39 @@ import java.util.List;
 public class BaseService<T extends PageEntity> {
 
 	@Autowired
-	private BaseMapper<T> m;
+	private BaseMapper<T> mapper;
 
 	public int deleteByPrimaryKey(Integer id) {
-		return m.deleteByPrimaryKey(id);
+		return mapper.deleteByPrimaryKey(id);
 	}
 
 	public int insert(T t) {
-		return m.insert(t);
+		return mapper.insert(t);
 	}
 
 	public int insertSelective(T t) {
-		return m.insertSelective(t);
+		return mapper.insertSelective(t);
 	}
 
 	public PageEntity selectByPrimaryKey(Integer id) {
-		return m.selectByPrimaryKey(id);
+		return mapper.selectByPrimaryKey(id);
 	}
 
 	public int updateByPrimaryKeySelective(T t) {
-		return m.updateByPrimaryKeySelective(t);
+		return mapper.updateByPrimaryKeySelective(t);
 	}
 
 	public int updateByPrimaryKey(T t) {
-		return m.updateByPrimaryKey(t);
+		return mapper.updateByPrimaryKey(t);
 	}
 
 	public PageInfo<T> selectPage(T t) {
 		PageHelper.startPage(t.getPageNum(), t.getPageSize());
-		List<T> list = m.list(t);
+		List<T> list = mapper.list(t);
 		return new PageInfo(list);
+	}
+
+	public List<T> list(T record){
+		return mapper.list(record);
 	}
 }
