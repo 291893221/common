@@ -9,16 +9,8 @@ import javax.annotation.Resource;
 
 @Slf4j
 @Service
-public class SysRoleService {
-
+public class SysRoleService extends BaseService<SysRole>{
 	@Resource
 	private SysRoleMapper sysRoleMapper;
 
-	public int insert(SysRole record) {
-		return sysRoleMapper.insert(record);
-	}
-
-	public SysRole selectByPrimaryKey(Integer roleId) {
-		return sysRoleMapper.selectByPrimaryKey(roleId);
-	}
 }

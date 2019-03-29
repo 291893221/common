@@ -25,7 +25,7 @@ public class BaseService<T extends PageEntity> {
 		return mapper.insertSelective(t);
 	}
 
-	public PageEntity selectByPrimaryKey(Integer id) {
+	public T selectByPrimaryKey(Integer id) {
 		return mapper.selectByPrimaryKey(id);
 	}
 
@@ -45,5 +45,9 @@ public class BaseService<T extends PageEntity> {
 
 	public List<T> list(T record){
 		return mapper.list(record);
+	}
+
+	public T selectBySelective(T record) {
+		return mapper.selectBySelective(record);
 	}
 }
