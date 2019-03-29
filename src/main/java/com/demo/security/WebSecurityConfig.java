@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
@@ -32,6 +33,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		//如果token表不存在，使用下面语句可以初始化该表；若存在，请注释掉这条语句，否则会报错。
 		//tokenRepository.setCreateTableOnStartup(true);
 		return tokenRepository;
+	}
+
+	@Bean
+	public DefaultWebSecurityExpressionHandler webSecurityExpressionHandler(){
+		DefaultWebSecurityExpressionHandler handler = new DefaultWebSecurityExpressionHandler();
+		handler.setPermissionEvaluator(new CustomPermissionEvaluator());
+		return handler;
 	}
 
 	@Override

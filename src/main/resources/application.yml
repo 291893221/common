@@ -11,6 +11,8 @@ spring:
         password: root
     profiles:
         active: dev
+    main:
+        allow-bean-definition-overriding: true
 mybatis:
     mapper-locations: classpath:/mapping/*.xml
     configuration:
