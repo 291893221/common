@@ -34,7 +34,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Collection<GrantedAuthority> authorities = new ArrayList<>();
 		// 从数据库中取出用户信息
-		SysUser sysUser = sysUserService.selectByUsername(username);
+		SysUser user = new SysUser();
+		user.setUsername(username);
+		SysUser sysUser = sysUserService.selectBySelective(user);
 
 		// 判断用户是否存在
 		if (sysUser == null) {

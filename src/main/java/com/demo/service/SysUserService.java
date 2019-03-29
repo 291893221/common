@@ -9,16 +9,8 @@ import javax.annotation.Resource;
 
 @Slf4j
 @Service
-public class SysUserService {
-
+public class SysUserService extends BaseService<SysUser> {
 	@Resource
 	private SysUserMapper sysUserMapper;
 
-	public int insert(SysUser record) {
-		return sysUserMapper.insert(record);
-	}
-
-	public SysUser selectByUsername(String username) {
-		return sysUserMapper.selectByUsername(username);
-	}
 }
