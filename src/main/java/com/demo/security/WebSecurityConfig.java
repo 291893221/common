@@ -100,7 +100,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				//指定最大登录数
 				.maximumSessions(1)
 				//当达到最大值时，是否保留已经登录的用户，为true，新用户无法登录；为 false，旧用户被踢出
-				.maxSessionsPreventsLogin(false)
+				.maxSessionsPreventsLogin(true)
 				//当达到最大值时，旧用户被踢出后的操作
 				.expiredSessionStrategy(customExpiredSessionStrategy);
 
