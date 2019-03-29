@@ -32,6 +32,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private CustomAuthenticationFailureHandler customAuthenticationFailureHandler;
 
+	@Autowired
+	private CustomExpiredSessionStrategy customExpiredSessionStrategy;
+
 	@Bean
 	public PersistentTokenRepository persistentTokenRepository() {
 		JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
@@ -87,13 +90,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				//自定义登陆用户名和密码参数，默认为username和password
 				//.usernameParameter("username")
 				//.passwordParameter("password")
-				.and().sessionManagement().invalidSessionUrl("/login/invalid")
 				.and().logout().permitAll()
 				.and().rememberMe()
 				.tokenRepository(persistentTokenRepository())
-				// 有效时间：单位s
+				//有效时间：单位s
 				.tokenValiditySeconds(60)
-				.userDetailsService(customUserDetailsService);
+				.userDetailsService(customUserDetailsService)
+				.and().sessionManagement().invalidSessionUrl("/login/invalid")
+				//指定最大登录数
+				.maximumSessions(1)
+				//当达到最大值时，是否保留已经登录的用户，为true，新用户无法登录；为 false，旧用户被踢出
+				.maxSessionsPreventsLogin(false)
+				//当达到最大值时，旧用户被踢出后的操作
+				.expiredSessionStrategy(customExpiredSessionStrategy);
 
 		//关闭CSRF跨域
 		http.csrf().disable();
