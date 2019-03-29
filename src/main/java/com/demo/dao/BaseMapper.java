@@ -18,4 +18,6 @@ public interface BaseMapper<T extends PageEntity> {
     int updateByPrimaryKey(T t);
 
     List<T> list(T t);
+
+	T selectBySelective(T record);
 }
