@@ -83,7 +83,7 @@ public class LoginController {
 	@ResponseBody
 	@PreAuthorize("hasPermission('/admin','r')")
 	public String printAdminR() {
-		return "有admin权限，有r权限";
+		return "url:/admin，有r权限";
 	}
 
 	/**
@@ -95,6 +95,6 @@ public class LoginController {
 	@ResponseBody
 	@PreAuthorize("hasPermission('/admin','c')")
 	public String printAdminC() {
-		return "有admin权限，有c权限";
+		return "url:/admin，有c权限";
 	}
 }
