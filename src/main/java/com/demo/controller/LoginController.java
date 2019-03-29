@@ -73,4 +73,28 @@ public class LoginController {
 			e.printStackTrace();
 		}
 	}
+
+	/**
+	 * http://localhost/admin/r
+	 *
+	 * @return
+	 */
+	@RequestMapping("/admin/r")
+	@ResponseBody
+	@PreAuthorize("hasPermission('/admin','r')")
+	public String printAdminR() {
+		return "有admin权限，有r权限";
+	}
+
+	/**
+	 * http://localhost/admin/c
+	 *
+	 * @return
+	 */
+	@RequestMapping("/admin/c")
+	@ResponseBody
+	@PreAuthorize("hasPermission('/admin','c')")
+	public String printAdminC() {
+		return "有admin权限，有c权限";
+	}
 }
