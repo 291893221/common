@@ -74,21 +74,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 				//如果有允许匿名的url，填在下面
 				//.antMatchers().permitAll()
+				.antMatchers("/login/invalid").permitAll()
 				.anyRequest().authenticated()
-				.and()
 				//设置登陆页
-				.formLogin().loginPage("/login")
-				.successHandler(customAuthenticationSuccessHandler)
-				.failureHandler(customAuthenticationFailureHandler)
+				.and().formLogin().loginPage("/login")
 				//设置登陆成功页
 				//.defaultSuccessUrl("/")
-				.permitAll()
+				.successHandler(customAuthenticationSuccessHandler)
 				//.failureUrl("/login/error")
+				.failureHandler(customAuthenticationFailureHandler)
+				.permitAll()
 				//自定义登陆用户名和密码参数，默认为username和password
 				//.usernameParameter("username")
 				//.passwordParameter("password")
-				.and()
-				.logout().permitAll()
+				.and().sessionManagement().invalidSessionUrl("/login/invalid")
+				.and().logout().permitAll()
 				.and().rememberMe()
 				.tokenRepository(persistentTokenRepository())
 				// 有效时间：单位s

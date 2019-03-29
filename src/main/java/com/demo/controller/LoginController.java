@@ -1,12 +1,14 @@
 package com.demo.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -96,5 +98,16 @@ public class LoginController {
 	@PreAuthorize("hasPermission('/admin','c')")
 	public String printAdminC() {
 		return "url:/admin，有c权限";
+	}
+
+	/**
+	 * http://localhost/login/invalid
+	 * @return
+	 */
+	@RequestMapping("/login/invalid")
+	@ResponseStatus(HttpStatus.UNAUTHORIZED)
+	@ResponseBody
+	public String invalid() {
+		return "Session 已过期，请重新登录";
 	}
 }
