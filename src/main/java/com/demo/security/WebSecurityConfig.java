@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
@@ -49,6 +51,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		DefaultWebSecurityExpressionHandler handler = new DefaultWebSecurityExpressionHandler();
 		handler.setPermissionEvaluator(new CustomPermissionEvaluator());
 		return handler;
+	}
+
+	@Bean
+	public SessionRegistry sessionRegistry() {
+		return new SessionRegistryImpl();
 	}
 
 	@Override
@@ -100,9 +107,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				//指定最大登录数
 				.maximumSessions(1)
 				//当达到最大值时，是否保留已经登录的用户，为true，新用户无法登录；为 false，旧用户被踢出
-				.maxSessionsPreventsLogin(true)
+				.maxSessionsPreventsLogin(false)
 				//当达到最大值时，旧用户被踢出后的操作
-				.expiredSessionStrategy(customExpiredSessionStrategy);
+				.expiredSessionStrategy(customExpiredSessionStrategy)
+				.sessionRegistry(sessionRegistry());;
 
 		//关闭CSRF跨域
 		http.csrf().disable();
