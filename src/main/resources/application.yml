@@ -16,6 +16,8 @@ spring:
         active: dev
     main:
         allow-bean-definition-overriding: true
+    session:
+      store-type: redis
 mybatis:
     mapper-locations: classpath:/mapping/*.xml
     configuration:
