@@ -37,6 +37,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private CustomExpiredSessionStrategy customExpiredSessionStrategy;
 
+	@Autowired
+	private CustomLogoutSuccessHandler logoutSuccessHandler;
+
 	@Bean
 	public PersistentTokenRepository persistentTokenRepository() {
 		JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
@@ -97,7 +100,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				//自定义登陆用户名和密码参数，默认为username和password
 				//.usernameParameter("username")
 				//.passwordParameter("password")
-				.and().logout().permitAll()
+				.and().logout().logoutUrl("/logout").deleteCookies("JSESSIONID").logoutSuccessHandler(logoutSuccessHandler)
 				.and().rememberMe()
 				.tokenRepository(persistentTokenRepository())
 				//有效时间：单位s
