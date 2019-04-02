@@ -4,11 +4,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.session.SessionInformation;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -119,6 +122,7 @@ public class LoginController {
 
 	/**
 	 * http://localhost/kick?username=test
+	 *
 	 * @param username
 	 * @return
 	 */
@@ -145,5 +149,40 @@ public class LoginController {
 			}
 		}
 		return "操作成功，清理session共" + count + "个";
+	}
+
+	/**
+	 * http://localhost/getAuthentication
+	 *
+	 * @return
+	 */
+	@GetMapping("/getAuthentication")
+	@ResponseBody
+	public Object getAuthentication() {
+		return SecurityContextHolder.getContext().getAuthentication();
+	}
+
+	/**
+	 * http://localhost/getAuthentication1
+	 *
+	 * @param authentication
+	 * @return
+	 */
+	@GetMapping("/getAuthentication1")
+	@ResponseBody
+	public Object getAuthentication(Authentication authentication) {
+		return authentication;
+	}
+
+	/**
+	 * http://localhost/getUserDetails
+	 *
+	 * @param userDetails
+	 * @return
+	 */
+	@GetMapping("/getUserDetails")
+	@ResponseBody
+	public Object getUserDetails(@AuthenticationPrincipal UserDetails userDetails) {
+		return userDetails;
 	}
 }
