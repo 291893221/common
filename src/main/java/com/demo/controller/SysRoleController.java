@@ -17,15 +17,15 @@ public class SysRoleController {
 	private SysRoleService sysRoleService;
 
 	/**
-	 * http://localhost/demo/sys/role/insert?roleName=游客
+	 * http://localhost/sys/role/insert?roleName=test
 	 *
 	 * @return String
 	 */
 	@RequestMapping("/insert")
 	@ResponseBody
-	public String insert(SysRole record) {
+	public SysRole insert(SysRole record) {
 		log.info("sysRole {}", record);
 		sysRoleService.insert(record);
-		return "sysRole";
+		return record;
 	}
 }
