@@ -17,7 +17,7 @@ public class SysUserController {
 	private SysUserService sysUserService;
 
 	/**
-	 * http://localhost/demo/sys/user/insert?username=zhangsan&password=123456
+	 * http://localhost/sys/user/insert?username=zhangsan&password=123456
 	 *
 	 * @return String
 	 */

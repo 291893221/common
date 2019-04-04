@@ -17,7 +17,7 @@ public class SysUserRoleController {
 	private SysUserRoleService sysUserRoleService;
 
 	/**
-	 * http://localhost/demo/sys/userRole/insert?userId=3&roleId=1
+	 * http://localhost/sys/userRole/insert?userId=3&roleId=1
 	 *
 	 * @return String
 	 */

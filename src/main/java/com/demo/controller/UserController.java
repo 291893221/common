@@ -22,7 +22,7 @@ public class UserController {
 	}
 
 	/**
-	 * http://localhost/demo/user/insert?name=zhangsan&password=123456
+	 * http://localhost/user/insert?name=zhangsan&password=123456
 	 *
 	 * @return String
 	 */
@@ -35,7 +35,7 @@ public class UserController {
 	}
 
 	/**
-	 * http://localhost/demo/user/select?pageNum=3&pageSize=10
+	 * http://localhost/user/select?pageNum=3&pageSize=10
 	 *
 	 * @param user id
 	 * @return user
@@ -47,7 +47,7 @@ public class UserController {
 	}
 
 	/**
-	 * http://localhost/demo/user/selectByPrimaryKey?id=10
+	 * http://localhost/user/selectByPrimaryKey?id=10
 	 *
 	 * @param id
 	 * @return
@@ -59,7 +59,7 @@ public class UserController {
 	}
 
 	/**
-	 * http://localhost/demo/user/deleteByPrimaryKey?id=10
+	 * http://localhost/user/deleteByPrimaryKey?id=10
 	 *
 	 * @param id
 	 * @return
