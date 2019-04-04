@@ -15,7 +15,7 @@ public class RedisController {
 	private RedisService redisService;
 
 	/**
-	 * http://localhost/demo/redis/set?key=demo&value=helloworld
+	 * http://localhost/redis/set?key=demo&value=helloworld
 	 *
 	 * @param key
 	 * @param value
@@ -27,7 +27,7 @@ public class RedisController {
 	}
 
 	/**
-	 * http://localhost/demo/redis/get?key=demo
+	 * http://localhost/redis/get?key=demo
 	 *
 	 * @param key
 	 * @return
