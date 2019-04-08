@@ -11,7 +11,7 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 public class EsDataEntity {
 	@Id
 	private Integer id;
-	@Field(type = FieldType.Text, analyzer = "ik_max_word")
+	@Field(type = FieldType.Text)
 	private String title;
 	@Field
 	private String data;

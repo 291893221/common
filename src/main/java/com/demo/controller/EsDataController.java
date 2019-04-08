@@ -24,4 +24,15 @@ public class EsDataController {
 		log.info("EsDataEntity : {}" + esDataEntity);
 		return esDataRepository.save(esDataEntity);
 	}
+
+
+	/**
+	 * http://localhost/es_data/findAll
+	 */
+	@RequestMapping("/findAll")
+	@ResponseBody
+	public Iterable<EsDataEntity> findAll() {
+		Iterable<EsDataEntity> all = esDataRepository.findAll();
+		return all;
+	}
 }
