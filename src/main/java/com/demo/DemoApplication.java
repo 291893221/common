@@ -15,6 +15,7 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 public class DemoApplication {
 
 	public static void main(String[] args) {
+		System.setProperty("es.set.netty.runtime.available.processors", "false");
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
