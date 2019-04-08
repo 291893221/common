@@ -21,7 +21,7 @@ spring:
     data:
         elasticsearch:
             cluster-name: es_cluster
-            cluster-nodes: 127.0.0.1:9200,127.0.0.1:9201,127.0.0.1:9202
+            cluster-nodes: 127.0.0.1:9300,127.0.0.1:9301,127.0.0.1:9302
 mybatis:
     mapper-locations: classpath:/mapping/*.xml
     configuration:

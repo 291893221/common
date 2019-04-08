@@ -7,7 +7,7 @@ import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
 @Data
-@Document(indexName = "nearby", type = "docs")
+@Document(indexName = "demo", type = "es_data")
 public class EsDataEntity {
 	@Id
 	private Integer id;
