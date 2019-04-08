@@ -18,9 +18,9 @@ public class EsDataController {
 	/**
 	 * http://localhost/es_data/createIndex?id=1&title=test&data=txt
 	 */
-	@RequestMapping("/createIndex")
+	@RequestMapping("/save")
 	@ResponseBody
-	public EsDataEntity createIndex(EsDataEntity esDataEntity) {
+	public EsDataEntity save(EsDataEntity esDataEntity) {
 		log.info("EsDataEntity : {}" + esDataEntity);
 		return esDataRepository.save(esDataEntity);
 	}

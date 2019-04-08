@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @Slf4j
 public class EsDataRepositoryTest extends DemoApplicationTests {
+
 	@Autowired
 	private EsDataRepository esDataRepository;
 
