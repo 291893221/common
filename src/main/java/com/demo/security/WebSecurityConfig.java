@@ -88,6 +88,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				//如果有允许匿名的url，填在下面
 				//.antMatchers().permitAll()
 				.antMatchers("/login/invalid").permitAll()
+				// swagger start
+				.antMatchers("/swagger-ui.html").permitAll()
+				.antMatchers("/swagger-resources/**").permitAll()
+				.antMatchers("/images/**").permitAll()
+				.antMatchers("/webjars/**").permitAll()
+				.antMatchers("/v2/api-docs").permitAll()
+				.antMatchers("/configuration/ui").permitAll()
+				.antMatchers("/configuration/security").permitAll()
+				// swagger end
 				.anyRequest().authenticated()
 				//设置登陆页
 				.and().formLogin().loginPage("/login")
