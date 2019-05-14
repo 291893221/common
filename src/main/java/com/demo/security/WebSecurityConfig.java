@@ -87,6 +87,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 				//如果有允许匿名的url，填在下面
 				//.antMatchers().permitAll()
+				.antMatchers("/sys/**").permitAll()
 				.antMatchers("/login/invalid").permitAll()
 				// swagger start
 				.antMatchers("/swagger-ui.html").permitAll()
