@@ -75,7 +75,7 @@
       permission = #{permission,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-    <select id="list" parameterType="com.demo.model.SysPermission" resultMap="BaseResultMap">
+    <select id="selectBySelective" parameterType="com.demo.model.SysPermission" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from

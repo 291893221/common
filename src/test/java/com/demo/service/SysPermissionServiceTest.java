@@ -27,9 +27,9 @@ public class SysPermissionServiceTest extends DemoApplicationTests {
 	public void list() {
 		SysPermission sysPermission = new SysPermission();
 		sysPermission.setRoleId(1);
-		List<SysPermission> sysPermissions = sysPermissionService.list(sysPermission);
+		List<SysPermission> sysPermissions = sysPermissionService.selectBySelective(sysPermission);
 		sysPermissions.stream().forEach(p ->
-				log.info("Test list : " + p.toString())
+				log.info("Test selectList : " + p.toString())
 		);
 	}
 }

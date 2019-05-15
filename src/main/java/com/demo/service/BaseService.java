@@ -39,15 +39,12 @@ public class BaseService<T extends PageEntity> {
 
 	public PageInfo<T> selectPage(T t) {
 		PageHelper.startPage(t.getPageNum(), t.getPageSize());
-		List<T> list = mapper.list(t);
+		List<T> list = mapper.selectBySelective(t);
 		return new PageInfo(list);
 	}
 
-	public List<T> list(T record) {
-		return mapper.list(record);
-	}
-
-	public T selectBySelective(T record) {
+	public List<T> selectBySelective(T record) {
 		return mapper.selectBySelective(record);
 	}
+
 }

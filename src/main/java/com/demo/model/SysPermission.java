@@ -18,7 +18,7 @@ public class SysPermission extends PageEntity {
 
 	private String permission;
 
-	//将 permission 按逗号分割为了 list
+	//将 permission 按逗号分割为了 selectList
 	private List permissions;
 
 	public List getPermissions() {

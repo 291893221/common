@@ -36,7 +36,14 @@ public class CustomUserDetailsService implements UserDetailsService {
 		// 从数据库中取出用户信息
 		SysUser user = new SysUser();
 		user.setUsername(username);
-		SysUser sysUser = sysUserService.selectBySelective(user);
+		List<SysUser> list = sysUserService.selectBySelective(user);
+
+		// 判断用户是否存在
+		if (list == null || list.size()==0) {
+			throw new UsernameNotFoundException("用户名不存在list");
+		}
+
+		SysUser sysUser = list.get(0);
 
 		// 判断用户是否存在
 		if (sysUser == null) {

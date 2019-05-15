@@ -35,11 +35,12 @@ public class CustomPermissionEvaluator implements PermissionEvaluator {
 			//查询角色id
 			SysRole role = new SysRole();
 			role.setRoleName(roleName);
-			Integer roleId = roleService.selectBySelective(role).getId();
+			List<SysRole> sysRoles = roleService.selectBySelective(role);
+			Integer roleId = sysRoles.get(0).getId();
 			//得到角色所有的权限
 			SysPermission permission = new SysPermission();
 			permission.setRoleId(roleId);
-			List<SysPermission> permissionList = permissionService.list(permission);
+			List<SysPermission> permissionList = permissionService.selectBySelective(permission);
 
 			//遍历permissionList
 			for (SysPermission sysPermission : permissionList) {
