@@ -1,6 +1,6 @@
 package com.demo.exception;
 
-public enum ProjectCheckExceptionCodeEnum implements ProjectCheckExceptionCode {
+public enum BusinessExceptionCodeEnum implements BusinessExceptionCode {
 	PARAMETER_EMPTY("P01", "参数为空"), //
 	PARAMETER_TYPE_ERROR("P02", "参数类型错误"), //
 	PARAMETER_TYPE_CONVERT_ERROR("P03", "参数类型转换异常"), //
@@ -13,7 +13,7 @@ public enum ProjectCheckExceptionCodeEnum implements ProjectCheckExceptionCode {
 	private String exceptionCode;
 	private String exceptionMessage;
 
-	private ProjectCheckExceptionCodeEnum(String exceptionCode, String exceptionMessage) {
+	private BusinessExceptionCodeEnum(String exceptionCode, String exceptionMessage) {
 		this.exceptionCode = exceptionCode;
 		this.exceptionMessage = exceptionMessage;
 	}

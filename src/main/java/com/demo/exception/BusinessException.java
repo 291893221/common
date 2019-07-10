@@ -2,31 +2,31 @@ package com.demo.exception;
 
 import java.util.Map;
 
-public class ProjectCheckBusinessException extends RuntimeException {
+public class BusinessException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
-	private ProjectCheckExceptionCode projectCheckExceptionCode;
+	private BusinessExceptionCode businessExceptionCode;
 	private String exceptionCode;
 	private String exceptionMessage;
 	private Map<String, Object> errorData;
 
-	public ProjectCheckBusinessException(String exceptionMessage) {
+	public BusinessException(String exceptionMessage) {
 		super();
 		this.exceptionMessage = exceptionMessage;
 	}
 
-	public ProjectCheckBusinessException(ProjectCheckExceptionCode projectCheckExceptionCode) {
+	public BusinessException(BusinessExceptionCode businessExceptionCode) {
 		super();
-		this.projectCheckExceptionCode = projectCheckExceptionCode;
-		this.exceptionCode = projectCheckExceptionCode.getExceptionCode();
-		this.exceptionMessage = projectCheckExceptionCode.getExceptionMessage();
+		this.businessExceptionCode = businessExceptionCode;
+		this.exceptionCode = businessExceptionCode.getExceptionCode();
+		this.exceptionMessage = businessExceptionCode.getExceptionMessage();
 	}
 
-	public ProjectCheckExceptionCode getProjectCheckExceptionCode() {
-		return projectCheckExceptionCode;
+	public BusinessExceptionCode getBusinessExceptionCode() {
+		return businessExceptionCode;
 	}
 
-	public void setProjectCheckExceptionCode(ProjectCheckExceptionCode projectCheckExceptionCode) {
-		this.projectCheckExceptionCode = projectCheckExceptionCode;
+	public void setBusinessExceptionCode(BusinessExceptionCode businessExceptionCode) {
+		this.businessExceptionCode = businessExceptionCode;
 	}
 
 	public String getExceptionCode() {
