@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <properties resource="application-daodev.yml"/>
+  <context id="context1" targetRuntime="MyBatis3Simple">
+    <jdbcConnection driverClass="${driver-class-name}" 
+    connectionURL="${url}" 
+    userId="${username}" 
+    password="${password}" />
+    <javaModelGenerator targetPackage="com.github.common.entity" 
+    targetProject="${name}" />
+    <sqlMapGenerator targetPackage="mapper" 
+    targetProject="${name}\src\main\resources\" />
+    <javaClientGenerator targetPackage="com.github.common.mapper" 
+    targetProject="${name}" 
+    type="XMLMAPPER" />
+    <table tableName="t_common_base_entity" />
+  </context>
+</generatorConfiguration>

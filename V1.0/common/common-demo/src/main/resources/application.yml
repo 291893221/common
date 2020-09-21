@@ -1,0 +1,20 @@
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/ums?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&tinyInt1isBit=false
+        username: test
+        password: test
+        type: com.alibaba.druid.pool.DruidDataSource
+    main:
+        allow-bean-definition-overriding: true
+mybatis:
+    mapper-locations: classpath:/mapper/*.xml
+    configuration:
+        log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+logging:
+    file: D:\\log\\ums\\dev.log
+    level.com.github.mapper: debug
+    pattern:
+        console: '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p})
+            %clr(${PID:- }){magenta} %clr(---){faint} %clr([%thread]){faint} %clr(%-40.40logger{39}){cyan}
+            %L %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}'

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.ums.mapper.MtmUserOrganizationMapper">
+    <resultMap id="BaseResultMap" type="com.github.ums.entity.MtmUserOrganization">
+        <id column="user_id" jdbcType="BIGINT" property="userId"/>
+        <id column="organization_id" jdbcType="BIGINT" property="organizationId"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from t_mtm_user_organization
+    where user_id = #{userId,jdbcType=BIGINT}
+      and organization_id = #{organizationId,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="com.github.ums.entity.MtmUserOrganization">
+    insert into t_mtm_user_organization (user_id, organization_id)
+    values (#{userId,jdbcType=BIGINT}, #{organizationId,jdbcType=BIGINT})
+  </insert>
+    <insert id="insertSelective" parameterType="com.github.ums.entity.MtmUserOrganization">
+        insert into t_mtm_user_organization
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="organizationId != null">
+                organization_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="organizationId != null">
+                #{organizationId,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+</mapper>

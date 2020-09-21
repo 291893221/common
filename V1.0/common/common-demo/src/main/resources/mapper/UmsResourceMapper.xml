@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.ums.mapper.UmsResourceMapper">
+    <resultMap id="BaseResultMap" type="com.github.ums.entity.UmsResource">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="resource_url" jdbcType="VARCHAR" property="resourceUrl"/>
+        <result column="resource_name" jdbcType="VARCHAR" property="resourceName"/>
+        <result column="resource_permission" jdbcType="VARCHAR" property="resourcePermission"/>
+        <result column="resource_icon" jdbcType="VARCHAR" property="resourceIcon"/>
+        <result column="resource_type" jdbcType="INTEGER" property="resourceType"/>
+        <result column="pid" jdbcType="BIGINT" property="pid"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="is_delete" jdbcType="INTEGER" property="isDelete"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="describe" jdbcType="VARCHAR" property="describe"/>
+        <result column="sort" jdbcType="BIGINT" property="sort"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, resource_url, resource_name, resource_permission, resource_icon, resource_type, 
+    pid, create_time, update_time, is_delete, `status`, `describe`, sort
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_ums_resource
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_ums_resource
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.github.ums.entity.UmsResource"
+            useGeneratedKeys="true">
+    insert into t_ums_resource (resource_url, resource_name, resource_permission, 
+      resource_icon, resource_type, pid, 
+      create_time, update_time, is_delete, 
+      `status`, `describe`, sort
+      )
+    values (#{resourceUrl,jdbcType=VARCHAR}, #{resourceName,jdbcType=VARCHAR}, #{resourcePermission,jdbcType=VARCHAR}, 
+      #{resourceIcon,jdbcType=VARCHAR}, #{resourceType,jdbcType=INTEGER}, #{pid,jdbcType=BIGINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{describe,jdbcType=VARCHAR}, #{sort,jdbcType=BIGINT}
+      )
+  </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.github.ums.entity.UmsResource"
+            useGeneratedKeys="true">
+        insert into t_ums_resource
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="resourceUrl != null">
+                resource_url,
+            </if>
+            <if test="resourceName != null">
+                resource_name,
+            </if>
+            <if test="resourcePermission != null">
+                resource_permission,
+            </if>
+            <if test="resourceIcon != null">
+                resource_icon,
+            </if>
+            <if test="resourceType != null">
+                resource_type,
+            </if>
+            <if test="pid != null">
+                pid,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="isDelete != null">
+                is_delete,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+            <if test="describe != null">
+                `describe`,
+            </if>
+            <if test="sort != null">
+                sort,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="resourceUrl != null">
+                #{resourceUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="resourceName != null">
+                #{resourceName,jdbcType=VARCHAR},
+            </if>
+            <if test="resourcePermission != null">
+                #{resourcePermission,jdbcType=VARCHAR},
+            </if>
+            <if test="resourceIcon != null">
+                #{resourceIcon,jdbcType=VARCHAR},
+            </if>
+            <if test="resourceType != null">
+                #{resourceType,jdbcType=INTEGER},
+            </if>
+            <if test="pid != null">
+                #{pid,jdbcType=BIGINT},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDelete != null">
+                #{isDelete,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="describe != null">
+                #{describe,jdbcType=VARCHAR},
+            </if>
+            <if test="sort != null">
+                #{sort,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.github.ums.entity.UmsResource">
+        update t_ums_resource
+        <set>
+            <if test="resourceUrl != null">
+                resource_url = #{resourceUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="resourceName != null">
+                resource_name = #{resourceName,jdbcType=VARCHAR},
+            </if>
+            <if test="resourcePermission != null">
+                resource_permission = #{resourcePermission,jdbcType=VARCHAR},
+            </if>
+            <if test="resourceIcon != null">
+                resource_icon = #{resourceIcon,jdbcType=VARCHAR},
+            </if>
+            <if test="resourceType != null">
+                resource_type = #{resourceType,jdbcType=INTEGER},
+            </if>
+            <if test="pid != null">
+                pid = #{pid,jdbcType=BIGINT},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDelete != null">
+                is_delete = #{isDelete,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="describe != null">
+                `describe` = #{describe,jdbcType=VARCHAR},
+            </if>
+            <if test="sort != null">
+                sort = #{sort,jdbcType=BIGINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.github.ums.entity.UmsResource">
+    update t_ums_resource
+    set resource_url = #{resourceUrl,jdbcType=VARCHAR},
+      resource_name = #{resourceName,jdbcType=VARCHAR},
+      resource_permission = #{resourcePermission,jdbcType=VARCHAR},
+      resource_icon = #{resourceIcon,jdbcType=VARCHAR},
+      resource_type = #{resourceType,jdbcType=INTEGER},
+      pid = #{pid,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=INTEGER},
+      `status` = #{status,jdbcType=INTEGER},
+      `describe` = #{describe,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+    <select id="selectBySelective" parameterType="com.github.ums.entity.UmsResource" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_ums_resource
+        where 1 = 1
+        <if test="id != null">
+            and id = #{id,jdbcType=BIGINT}
+        </if>
+        <if test="resourceUrl != null">
+            and resource_url = #{resourceUrl,jdbcType=VARCHAR}
+        </if>
+        <if test="resourceName != null">
+            and resource_name = #{resourceName,jdbcType=VARCHAR}
+        </if>
+        <if test="resourcePermission != null">
+            and resource_permission = #{resourcePermission,jdbcType=VARCHAR}
+        </if>
+        <if test="resourceIcon != null">
+            and resource_icon = #{resourceIcon,jdbcType=VARCHAR}
+        </if>
+        <if test="resourceType != null">
+            and resource_type = #{resourceType,jdbcType=INTEGER}
+        </if>
+        <if test="pid != null">
+            and pid = #{pid,jdbcType=BIGINT}
+        </if>
+        <if test="createTime != null">
+            and create_time = #{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="updateTime != null">
+            and update_time = #{updateTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="isDelete != null">
+            and is_delete = #{isDelete,jdbcType=INTEGER}
+        </if>
+        <if test="status != null">
+            and `status` = #{status,jdbcType=INTEGER}
+        </if>
+        <if test="describe != null">
+            and `describe` = #{describe,jdbcType=VARCHAR}
+        </if>
+        <if test="sort != null">
+            and sort = #{sort,jdbcType=BIGINT}
+        </if>
+    </select>
+</mapper>
