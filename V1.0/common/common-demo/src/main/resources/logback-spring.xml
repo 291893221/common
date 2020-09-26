@@ -11,7 +11,7 @@
         </encoder>
     </appender>
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <file>D:\\log\\ums\\dev.log</file>
+        <file>D:\\log\\ums.log</file>
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} %L - %msg%n</pattern>
         </encoder>
@@ -19,19 +19,8 @@
     <appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
         <appender-ref ref="FILE"/>
     </appender>
-    <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
-        <connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
-            <dataSource class="com.alibaba.druid.pool.DruidDataSource">
-                <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
-                <url>jdbc:mysql://127.0.0.1:3306/ums?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=UTC&amp;tinyInt1isBit=false</url>
-                <username>test</username>
-                <password>test</password>
-            </dataSource>
-        </connectionSource>
-    </appender>
     <root level="info">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="ASYNC"/>
-        <appender-ref ref="DB"/>
     </root>
 </configuration>
