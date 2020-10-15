@@ -24,7 +24,7 @@ public class BaseController<T extends BaseEntity> {
 	@ApiOperation(value = "新增", notes = "新增数据")
 	public T insert(T record) {
 		service.insertSelective(record);
-		log.info("sysUser {}", record);
+		log.info("entity {}", record);
 		return record;
 	}
 
@@ -38,14 +38,14 @@ public class BaseController<T extends BaseEntity> {
 	@GetMapping
 	@ApiOperation(value = "查询", notes = "分页查询方法")
 	public PageInfo<T> selectBySelective(T record) {
-		log.info("sysRole {}", record);
+		log.info("entity {}", record);
 		return service.selectPage(record);
 	}
 
 	@PutMapping
 	@ApiOperation(value = "修改", notes = "根据主键id更新数据")
 	public int updateByPrimaryKeySelective(T record) {
-		log.info("sysUser {}", record);
+		log.info("entity {}", record);
 		return service.updateByPrimaryKeySelective(record);
 	}
 
