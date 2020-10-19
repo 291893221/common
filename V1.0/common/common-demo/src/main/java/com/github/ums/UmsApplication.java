@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import com.spring4all.swagger.EnableSwagger2Doc;
 
 @SpringBootApplication
-@MapperScan("com.github.ums.mapper")
+@MapperScan({"com.github.common.mapper","com.github.ums.mapper"})
 @EnableSwagger2Doc
 @ComponentScan(basePackages = {"com.github.common","com.github.ums"})
 public class UmsApplication {
