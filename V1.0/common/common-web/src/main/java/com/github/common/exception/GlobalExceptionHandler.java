@@ -27,7 +27,7 @@ public class GlobalExceptionHandler {
 	 */
 	@ExceptionHandler(value = CustomException.class)
 	public ResultVo processException(CustomException e) {
-		log.error("自定义异常: {} -> 错误信息: {}", e.getMethod(), e.getLocalizedMessage());
+		log.error("自定义异常，调用方法: {} -> 异常信息: {}", e.getMethod(), e.getLocalizedMessage());
 		return new ResultVo();
 	}
 

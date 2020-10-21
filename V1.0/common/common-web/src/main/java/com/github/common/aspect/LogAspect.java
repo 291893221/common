@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -14,14 +13,12 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.github.common.controller.vo.ResultVo;
 
-import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
 @Aspect
@@ -35,30 +32,8 @@ public class LogAspect {
 	@Before("webLog()")
 	public void deBefore(JoinPoint joinPoint) throws Throwable {
 		// 接收到请求，记录请求内容
-//		ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-//		HttpServletRequest request = attributes.getRequest();
 		ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
 		HttpServletRequest request = attributes.getRequest();
-
-		StringBuilder requestLog = new StringBuilder();
-		Signature signature = joinPoint.getSignature();
-		requestLog.append(((MethodSignature) signature).getMethod().getAnnotation(ApiOperation.class).value()).append("\t").append("请求信息：").append("URL = {").append(request.getRequestURI()).append("},\t").append("请求方式 = {").append(request.getMethod()).append("},\t").append("请求IP = {").append(request.getRemoteAddr()).append("},\t").append("类方法 = {").append(signature.getDeclaringTypeName()).append(".").append(signature.getName()).append("},\t");
-
-		// 处理请求参数
-		String[] paramNames = ((MethodSignature) signature).getParameterNames();
-		Object[] paramValues = joinPoint.getArgs();
-		int paramLength = null == paramNames ? 0 : paramNames.length;
-		if (paramLength == 0) {
-			requestLog.append("请求参数 = {} ");
-		} else {
-			requestLog.append("请求参数 = [");
-			for (int i = 0; i < paramLength - 1; i++) {
-				requestLog.append(paramNames[i]).append("=").append((paramValues[i])).append(",");
-			}
-			requestLog.append(paramNames[paramLength - 1]).append("=").append((paramValues[paramLength - 1])).append("]");
-		}
-
-		log.info(requestLog.toString());
 
 		// 记录下请求内容
 		log.info("--------------------------------------------------<Log In HTTP Request Start>--------------------------------------------------");
@@ -99,7 +74,7 @@ public class LogAspect {
 			ResultVo resultVo = new ResultVo();
 			resultVo.setCode(200);
 			resultVo.setData(o);
-			resultVo.setMessage("around");
+			resultVo.setMessage("接口调用成功");
 			return resultVo;
 		} catch (Throwable e) {
 			log.error(e.getLocalizedMessage());
