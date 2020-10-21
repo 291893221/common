@@ -31,14 +31,14 @@ public class NoRepeatSubmitAspect {
 
 	@Pointcut("execution(public * com.github.*.controller.*.*(..)) && @annotation(noRepeatSubmit)")
 	public void pointcut(NoRepeatSubmit noRepeatSubmit) {
-		
+
 	}
-	
+
 	@Before("pointcut(noRepeatSubmit)")
 	public void before(JoinPoint joinPoint, NoRepeatSubmit noRepeatSubmit) {
 		log.info("--------------------------------------------------<Log In NoRepeatSubmitAspect Start>--------------------------------------------------");
 	}
-	
+
 	@Around("pointcut(noRepeatSubmit)")
 	public Object arround(ProceedingJoinPoint pjp, NoRepeatSubmit noRepeatSubmit) {
 		try {
@@ -66,5 +66,5 @@ public class NoRepeatSubmitAspect {
 	public void after(JoinPoint joinPoint, NoRepeatSubmit noRepeatSubmit) {
 		log.info("--------------------------------------------------<Log In NoRepeatSubmitAspect end>--------------------------------------------------");
 	}
-	
+
 }

@@ -18,8 +18,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.github.common.controller.vo.ResultVo;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Aspect
@@ -27,6 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Order(1000)
 public class WebLogAspect {
+
 	@Pointcut("execution(public * com.github.*.controller.*.*(..))")
 	public void pointcut() {
 	}
