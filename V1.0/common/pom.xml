@@ -15,7 +15,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>common-web</module>
-        <module>common-demo</module>
+        <module>common-web-ums</module>
+        <module>common-gateway</module>
     </modules>
     <properties>
         <java.version>14</java.version>

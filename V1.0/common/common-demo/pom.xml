@@ -7,8 +7,8 @@
 		<artifactId>common</artifactId>
 		<version>1.0</version>
 	</parent>
-	<artifactId>common-demo</artifactId>
-	<name>common-demo</name>
+	<artifactId>common-web-ums</artifactId>
+	<name>common-web-ums</name>
 	<dependencies>
 		<dependency>
 			<groupId>com.github</groupId>

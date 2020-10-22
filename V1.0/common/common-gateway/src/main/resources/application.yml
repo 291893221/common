@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: id001
+          uri: http://localhost/
+          predicates:
+            - Path=/gateway/**
+          filters:
+            - StripPrefix=1
