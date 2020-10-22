@@ -1,4 +1,4 @@
-package com.gisuni.gateway.filter;
+package com.github.gateway.filter;
 
 import java.net.URI;
 

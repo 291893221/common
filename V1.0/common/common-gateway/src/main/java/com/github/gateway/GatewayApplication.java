@@ -1,4 +1,4 @@
-package com.gisuni.gateway;
+package com.github.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
