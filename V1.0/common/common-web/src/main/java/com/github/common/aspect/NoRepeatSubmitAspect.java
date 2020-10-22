@@ -36,11 +36,12 @@ public class NoRepeatSubmitAspect {
 
 	@Before("pointcut(noRepeatSubmit)")
 	public void before(JoinPoint joinPoint, NoRepeatSubmit noRepeatSubmit) {
-		log.info("--------------------------------------------------<Log In NoRepeatSubmitAspect Start>--------------------------------------------------");
 	}
 
 	@Around("pointcut(noRepeatSubmit)")
 	public Object arround(ProceedingJoinPoint pjp, NoRepeatSubmit noRepeatSubmit) {
+		log.info("--------------------------------------------------<Log In NoRepeatSubmitAspect Start>--------------------------------------------------");
+
 		try {
 			log.info("============ NoRepeatSubmitAspect ==============");
 			ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
@@ -50,6 +51,8 @@ public class NoRepeatSubmitAspect {
 			if (cache.getIfPresent(key) == null) {// 如果缓存中有这个url视为重复提交
 				Object o = pjp.proceed();
 				cache.put(key, 0);
+				log.info("--------------------------------------------------<Log In NoRepeatSubmitAspect end>--------------------------------------------------");
+
 				return o;
 			} else {
 				log.error("重复提交");
@@ -64,7 +67,6 @@ public class NoRepeatSubmitAspect {
 
 	@After("pointcut(noRepeatSubmit)")
 	public void after(JoinPoint joinPoint, NoRepeatSubmit noRepeatSubmit) {
-		log.info("--------------------------------------------------<Log In NoRepeatSubmitAspect end>--------------------------------------------------");
 	}
 
 }
