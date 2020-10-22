@@ -21,6 +21,7 @@
     <properties>
         <java.version>14</java.version>
         <application.version>1.0</application.version>
+        <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
     </properties>
     <dependencies>
     </dependencies>
@@ -46,8 +47,15 @@
 	            <artifactId>swagger-spring-boot-starter</artifactId>
 	            <version>1.9.0.RELEASE</version>
 	        </dependency>
-        </dependencies>
-    </dependencyManagement>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<build>
 		<plugins>
 			<plugin>
