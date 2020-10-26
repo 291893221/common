@@ -1,6 +1,7 @@
 package com.github.gateway.filter;
 
 import java.net.URI;
+import java.util.Arrays;
 
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
@@ -16,20 +17,20 @@ import reactor.core.publisher.Mono;
 
 @Component
 @Slf4j
-public class TokenFilter implements GlobalFilter, Ordered {
+public class WebLogFilter implements GlobalFilter, Ordered {
 
 	@Override
 	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-		log.info("--------------------------------------------------<Log In TokenFilter Start>--------------------------------------------------");
+		log.info("--------------------------------------------------<Log In WebLogFilter Start>--------------------------------------------------");
 		ServerHttpRequest request = exchange.getRequest();
+		URI uri = request.getURI();
+		log.info("uri: " + uri);
 		MultiValueMap<String, String> queryParams = request.getQueryParams();
-		String token = queryParams.getFirst("token");
-		log.info("token: " + token);
-		if (token == null || token.isEmpty()) {
-			exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
-			return exchange.getResponse().setComplete();
-		}
-		log.info("--------------------------------------------------<Log In TokenFilter End>--------------------------------------------------");
+		// 记录下请求内容
+		queryParams.forEach((k, v) -> {
+			log.info(k + ": " + v);
+		});
+		log.info("--------------------------------------------------<Log In WebLogFilter End>--------------------------------------------------");
 		return chain.filter(exchange);
 	}
 
