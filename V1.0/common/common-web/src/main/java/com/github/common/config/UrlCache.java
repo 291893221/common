@@ -12,6 +12,6 @@ import com.google.common.cache.CacheBuilder;
 public class UrlCache {
 	@Bean
     public Cache<String, Integer> getCache() {
-        return CacheBuilder.newBuilder().expireAfterWrite(2L, TimeUnit.SECONDS).build();// 缓存有效期为2秒
+        return CacheBuilder.newBuilder().expireAfterWrite(10L, TimeUnit.SECONDS).build();
     }
 }

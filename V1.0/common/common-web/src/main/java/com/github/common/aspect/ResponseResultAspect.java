@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @Aspect
 @Component
 @Slf4j
-@Order(100)
+@Order(2)
 public class ResponseResultAspect {
 
 	@Pointcut("execution(public * com.github.*.controller.*.*(..))")

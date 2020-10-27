@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 @Aspect
 @Component
 @Slf4j
-@Order(1000)
+@Order(1)
 public class WebLogAspect {
 
 	@Pointcut("execution(public * com.github.*.controller.*.*(..))")

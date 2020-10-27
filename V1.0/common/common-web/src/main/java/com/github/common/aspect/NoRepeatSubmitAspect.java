@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 @Aspect
 @Component
 @Slf4j
-@Order(10)
+@Order(3)
 public class NoRepeatSubmitAspect {
 
 	@Autowired
@@ -31,7 +31,6 @@ public class NoRepeatSubmitAspect {
 
 	@Pointcut("execution(public * com.github.*.controller.*.*(..)) && @annotation(noRepeatSubmit)")
 	public void pointcut(NoRepeatSubmit noRepeatSubmit) {
-
 	}
 
 	@Before("pointcut(noRepeatSubmit)")
@@ -46,13 +45,15 @@ public class NoRepeatSubmitAspect {
 			log.info("============ NoRepeatSubmitAspect ==============");
 			ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
 			String sessionId = RequestContextHolder.getRequestAttributes().getSessionId();
+			log.info("sessionId: "+sessionId);
 			HttpServletRequest request = attributes.getRequest();
 			String key = sessionId + "-" + request.getServletPath();
+			log.info("key: "+key);
+			log.info("servletPath: "+request.getServletPath());
 			if (cache.getIfPresent(key) == null) {// 如果缓存中有这个url视为重复提交
 				Object o = pjp.proceed();
 				cache.put(key, 0);
 				log.info("--------------------------------------------------<Log In NoRepeatSubmitAspect end>--------------------------------------------------");
-
 				return o;
 			} else {
 				log.error("重复提交");
