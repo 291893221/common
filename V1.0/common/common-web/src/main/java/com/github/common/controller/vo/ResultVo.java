@@ -1,12 +1,14 @@
 package com.github.common.controller.vo;
 
+import com.github.common.exception.bo.ResultEnum;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Getter
 @ApiModel("统一返回格式")
-public class ResultVo {
+public class ResultVo<T> {
 
 	/**
 	 * 状态码
@@ -24,6 +26,16 @@ public class ResultVo {
 	 * 数据列表
 	 */
 	@ApiModelProperty("数据列表")
-	private Object data;
+	private T data;
+
+	public ResultVo(ResultEnum resultEnum, T data) {
+		this.code = resultEnum.getCode();
+		this.message = resultEnum.getMessage();
+		this.data = data;
+	}
+
+	public ResultVo(T data) {
+		this(ResultEnum.SUCCESS, data);
+	}
 
 }

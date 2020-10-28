@@ -29,14 +29,11 @@ public class ResponseResultAspect {
 			Object o = pjp.proceed();
 			log.info("方法环绕proceed，结果是 :" + o);
 
-			ResultVo resultVo = new ResultVo();
-			resultVo.setCode(200);
-			resultVo.setData(o);
-			resultVo.setMessage("接口调用成功");
+			ResultVo<Object> resultVo = new ResultVo<Object>(o);
 			log.info("--------------------------------------------------<Log In ResultAspect End>--------------------------------------------------");
 			return resultVo;
 		} catch (Throwable e) {
-			log.error(e.getLocalizedMessage());
+			log.error(e.getLocalizedMessage(), e);
 			return null;
 		}
 	}

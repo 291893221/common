@@ -45,11 +45,11 @@ public class NoRepeatSubmitAspect {
 			log.info("============ NoRepeatSubmitAspect ==============");
 			ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
 			String sessionId = RequestContextHolder.getRequestAttributes().getSessionId();
-			log.info("sessionId: "+sessionId);
+			log.info("sessionId: " + sessionId);
 			HttpServletRequest request = attributes.getRequest();
 			String key = sessionId + "-" + request.getServletPath();
-			log.info("key: "+key);
-			log.info("servletPath: "+request.getServletPath());
+			log.info("key: " + key);
+			log.info("servletPath: " + request.getServletPath());
 			if (cache.getIfPresent(key) == null) {// 如果缓存中有这个url视为重复提交
 				Object o = pjp.proceed();
 				cache.put(key, 0);
@@ -60,8 +60,8 @@ public class NoRepeatSubmitAspect {
 				return "重复提交";
 			}
 		} catch (Throwable e) {
-			e.printStackTrace();
-			log.error("验证重复提交时出现未知异常!");
+//			e.printStackTrace();
+			log.error("验证重复提交时出现未知异常!" + e.getMessage(), e);
 			return "{\"code\":-889,\"message\":\"验证重复提交时出现未知异常!\"}";
 		}
 	}

@@ -28,17 +28,24 @@ public enum ResultEnum {
 	/**
 	 * 查找失败
 	 */
-	GET_ERROR(106, "查找失败"),
+	GET_ERROR(106, "查找失败"), 
+	
+	SUCCESS(100, "请求成功"),
 
 	;
 
 	private Integer code;
 
 	private String message;
-
+	
 	ResultEnum(Integer code, String message) {
 		this.code = code;
 		this.message = message;
+	}
+
+	ResultEnum(Exception e) {
+		this.code = 900;
+		this.message = e.getMessage();
 	}
 
 	/**

@@ -2,10 +2,12 @@ package com.github.gateway.filter;
 
 import java.net.URI;
 import java.util.Arrays;
+import java.util.Set;
 
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
@@ -25,6 +27,9 @@ public class WebLogFilter implements GlobalFilter, Ordered {
 		ServerHttpRequest request = exchange.getRequest();
 		URI uri = request.getURI();
 		log.info("uri: " + uri);
+		HttpHeaders headers = request.getHeaders();
+		Set<String> keySet = headers.keySet();
+		log.info(""+keySet.size());
 		MultiValueMap<String, String> queryParams = request.getQueryParams();
 		// 记录下请求内容
 		queryParams.forEach((k, v) -> {

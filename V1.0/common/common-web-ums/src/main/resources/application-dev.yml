@@ -1,11 +1,4 @@
-server:
-    port: 8081
-application:
-    version: 1.0
 spring:
-    jackson:
-        date-format: yyyy-MM-dd HH:mm:ss
-        time-zone: GMT+8
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://127.0.0.1:3306/ums?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&tinyInt1isBit=false
@@ -14,15 +7,13 @@ spring:
         type: com.alibaba.druid.pool.DruidDataSource
     main:
         allow-bean-definition-overriding: true
-    application:
-        name: common-dao
 mybatis:
     mapper-locations: classpath:/mapper/*.xml
     configuration:
         log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
 logging:
-    file: D:\\log\\common-web.log
-    level.com.github.common.mapper: debug
+    file: D:\\log\\ums.log
+    level.com.github.mapper: debug
     pattern:
         console: '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p})
             %clr(${PID:- }){magenta} %clr(---){faint} %clr([%thread]){faint} %clr(%-40.40logger{39}){cyan}

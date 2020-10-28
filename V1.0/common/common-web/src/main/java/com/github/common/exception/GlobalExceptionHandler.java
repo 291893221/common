@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.github.common.controller.vo.ResultVo;
+import com.github.common.exception.bo.ResultEnum;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,7 +20,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler
 	public ResultVo exception(Exception e) {
 		log.error("通用异常: {} ", e.getLocalizedMessage());
-		return new ResultVo();
+		return new ResultVo(e);
 	}
 	
 	/**
@@ -28,7 +29,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(value = CustomException.class)
 	public ResultVo processException(CustomException e) {
 		log.error("自定义异常，调用方法: {} -> 异常信息: {}", e.getMethod(), e.getLocalizedMessage());
-		return new ResultVo();
+		return new ResultVo(e);
 	}
 
 }
