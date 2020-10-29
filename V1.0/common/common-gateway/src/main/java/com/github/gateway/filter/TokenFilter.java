@@ -1,7 +1,5 @@
 package com.github.gateway.filter;
 
-import java.net.URI;
-
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;

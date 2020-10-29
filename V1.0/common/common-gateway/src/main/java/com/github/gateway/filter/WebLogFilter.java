@@ -2,6 +2,8 @@ package com.github.gateway.filter;
 
 import java.net.URI;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -25,11 +27,20 @@ public class WebLogFilter implements GlobalFilter, Ordered {
 	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
 		log.info("--------------------------------------------------<Log In WebLogFilter Start>--------------------------------------------------");
 		ServerHttpRequest request = exchange.getRequest();
+		String requestId = request.getId();
+		log.info("requestId: " + requestId);
 		URI uri = request.getURI();
 		log.info("uri: " + uri);
 		HttpHeaders headers = request.getHeaders();
 		Set<String> keySet = headers.keySet();
-		log.info(""+keySet.size());
+		log.info("keySet: " + keySet.size());
+		
+		log.info("------------HttpHeaders-------------");
+		Set<Entry<String,List<String>>> entrySet = headers.entrySet();
+		entrySet.forEach((e)->{
+			log.info(e.getKey() + ": " + e.getValue());
+		});
+		log.info("------------QueryParams-------------");
 		MultiValueMap<String, String> queryParams = request.getQueryParams();
 		// 记录下请求内容
 		queryParams.forEach((k, v) -> {
