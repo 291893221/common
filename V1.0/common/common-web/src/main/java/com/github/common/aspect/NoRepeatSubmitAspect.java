@@ -60,7 +60,6 @@ public class NoRepeatSubmitAspect {
 				return "重复提交";
 			}
 		} catch (Throwable e) {
-//			e.printStackTrace();
 			log.error("验证重复提交时出现未知异常!" + e.getMessage(), e);
 			return "{\"code\":-889,\"message\":\"验证重复提交时出现未知异常!\"}";
 		}

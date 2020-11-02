@@ -25,10 +25,5 @@ public class RequestInfoBO {
 		this.httpMethod = request.getMethod();
 		this.classMethod = joinPoint.getSignature().getDeclaringTypeName() +"."+ joinPoint.getSignature().getName();
 		this.requestParams = Arrays.toString(joinPoint.getArgs());
-		this.result = result;
-		this.timeCost = timeCost;
-		this.exception = exception;
 	}
-	
-	
 }

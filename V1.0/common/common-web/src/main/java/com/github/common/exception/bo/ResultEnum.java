@@ -48,19 +48,4 @@ public enum ResultEnum {
 		this.message = e.getMessage();
 	}
 
-	/**
-	 * 通过状态码获取枚举对象
-	 * 
-	 * @param code 状态码
-	 * @return 枚举对象
-	 */
-	public static ResultEnum getByCode(int code) {
-		for (ResultEnum resultEnum : ResultEnum.values()) {
-			if (code == resultEnum.getCode()) {
-				return resultEnum;
-			}
-		}
-		return null;
-	}
-
 }
