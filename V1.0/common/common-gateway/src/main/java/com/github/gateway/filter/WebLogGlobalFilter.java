@@ -19,7 +19,7 @@ import reactor.core.publisher.Mono;
 
 @Component
 @Slf4j
-public class WebLogFilter implements GlobalFilter, Ordered {
+public class WebLogGlobalFilter implements GlobalFilter, Ordered {
 
 	@Override
 	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
