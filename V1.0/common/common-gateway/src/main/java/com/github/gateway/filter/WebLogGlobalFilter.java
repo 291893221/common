@@ -33,10 +33,8 @@ public class WebLogGlobalFilter implements GlobalFilter, Ordered {
 		Set<String> keySet = headers.keySet();
 		log.info("keySet: " + keySet.size());
 		log.info("------------HttpHeaders-------------");
-		Set<Entry<String,List<String>>> entrySet = headers.entrySet();
-		entrySet.forEach((e)->{
-			log.info(e.getKey() + ": " + e.getValue());
-		});
+		Set<Entry<String, List<String>>> entrySet = headers.entrySet();
+		entrySet.forEach((e) -> log.info(e.getKey() + ": " + e.getValue()));
 		log.info("------------QueryParams-------------");
 		MultiValueMap<String, String> queryParams = request.getQueryParams();
 		// 记录下请求内容
