@@ -38,9 +38,7 @@ public class WebLogGlobalFilter implements GlobalFilter, Ordered {
 		log.info("------------QueryParams-------------");
 		MultiValueMap<String, String> queryParams = request.getQueryParams();
 		// 记录下请求内容
-		queryParams.forEach((k, v) -> {
-			log.info(k + ": " + v);
-		});
+		queryParams.forEach((k, v) -> log.info(k + ": " + v));
 		log.info("--------------------------------------------------<Log In WebLogFilter End>--------------------------------------------------");
 		return chain.filter(exchange);
 	}
