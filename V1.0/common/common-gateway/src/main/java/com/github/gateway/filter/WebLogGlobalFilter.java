@@ -32,7 +32,6 @@ public class WebLogGlobalFilter implements GlobalFilter, Ordered {
 		HttpHeaders headers = request.getHeaders();
 		Set<String> keySet = headers.keySet();
 		log.info("keySet: " + keySet.size());
-		
 		log.info("------------HttpHeaders-------------");
 		Set<Entry<String,List<String>>> entrySet = headers.entrySet();
 		entrySet.forEach((e)->{
