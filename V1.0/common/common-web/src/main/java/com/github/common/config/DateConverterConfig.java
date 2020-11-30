@@ -1,6 +1,5 @@
 package com.github.common.config;
 
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

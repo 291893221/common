@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
  */
 @ApiModel(value = "com.github.entity.UmsUser")
 @Data
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 public class UmsUser extends BaseEntity {
 
 	@ApiModelProperty(value = "登陆帐号")

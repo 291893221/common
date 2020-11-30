@@ -18,12 +18,13 @@ public class RequestInfoBO {
 	private Object result;
 	private Long timeCost;
 	private RuntimeException exception;
+
 	public RequestInfoBO(HttpServletRequest request, JoinPoint joinPoint) {
 		super();
 		this.ip = request.getRemoteAddr();
 		this.url = request.getRequestURL().toString();
 		this.httpMethod = request.getMethod();
-		this.classMethod = joinPoint.getSignature().getDeclaringTypeName() +"."+ joinPoint.getSignature().getName();
+		this.classMethod = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
 		this.requestParams = Arrays.toString(joinPoint.getArgs());
 	}
 }

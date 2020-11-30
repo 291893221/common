@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
 		log.error("通用异常: {} ", e.getLocalizedMessage());
 		return new ResultVo(e);
 	}
-	
+
 	/**
 	 * 自定义异常
 	 */

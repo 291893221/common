@@ -11,7 +11,7 @@ import com.google.common.cache.CacheBuilder;
 @Configuration
 public class UrlCache {
 	@Bean
-    public Cache<String, Integer> getCache() {
-        return CacheBuilder.newBuilder().expireAfterWrite(10L, TimeUnit.SECONDS).build();
-    }
+	public Cache<String, Integer> getCache() {
+		return CacheBuilder.newBuilder().expireAfterWrite(10L, TimeUnit.SECONDS).build();
+	}
 }
