@@ -1,0 +1,11 @@
+${AnsiColor.BRIGHT_YELLOW}
+                                                                   __ _       
+   ___ ___  _ __ ___  _ __ ___   ___  _ __         ___ ___  _ __  / _(_) __ _ 
+  / __/ _ \| '_ ` _ \| '_ ` _ \ / _ \| '_ \ _____ / __/ _ \| '_ \| |_| |/ _` |
+ | (_| (_) | | | | | | | | | | | (_) | | | |_____| (_| (_) | | | |  _| | (_| |
+  \___\___/|_| |_| |_|_| |_| |_|\___/|_| |_|      \___\___/|_| |_|_| |_|\__, |
+                                                                        |___/
+${AnsiColor.BRIGHT_BLUE}
+::: ${application.name} ${application.version}
+::: Spring-Boot ${spring-boot.version}
+::: http://localhost:${server.port}/
