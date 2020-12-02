@@ -1,4 +1,4 @@
-package com.github.gateway.filter.bo;
+package com.github.common.filter.bo;
 
 import lombok.Data;
 

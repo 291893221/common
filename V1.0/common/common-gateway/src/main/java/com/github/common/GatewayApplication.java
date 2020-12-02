@@ -1,4 +1,4 @@
-package com.github.gateway;
+package com.github.common;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

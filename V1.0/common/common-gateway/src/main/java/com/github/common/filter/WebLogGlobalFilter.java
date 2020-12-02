@@ -1,4 +1,4 @@
-package com.github.gateway.filter;
+package com.github.common.filter;
 
 import java.net.URI;
 import java.util.List;
