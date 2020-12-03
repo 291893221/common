@@ -9,10 +9,10 @@ import com.spring4all.swagger.EnableSwagger2Doc;
 @SpringBootApplication
 @MapperScan("com.github.common.mapper")
 @EnableSwagger2Doc
-public class CommonApplication {
+public class WebApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CommonApplication.class, args);
+		SpringApplication.run(WebApplication.class, args);
 	}
 
 }
