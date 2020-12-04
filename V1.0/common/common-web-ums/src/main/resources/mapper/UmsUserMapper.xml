@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.github.ums.mapper.UmsUserMapper">
-    <resultMap id="BaseResultMap" type="com.github.ums.entity.UmsUser">
+<mapper namespace="com.github.common.mapper.UmsUserMapper">
+    <resultMap id="BaseResultMap" type="com.github.common.entity.UmsUser">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="username" jdbcType="VARCHAR" property="username"/>
         <result column="password" jdbcType="VARCHAR" property="password"/>
@@ -29,7 +29,7 @@
     delete from t_ums_user
     where id = #{id,jdbcType=BIGINT}
   </delete>
-    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.github.ums.entity.UmsUser"
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.github.common.entity.UmsUser"
             useGeneratedKeys="true">
     insert into t_ums_user (username, `password`, nickname, 
       is_locked, is_admin, create_time, 
@@ -40,7 +40,7 @@
       #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
       #{describe,jdbcType=VARCHAR}, #{sort,jdbcType=BIGINT})
   </insert>
-    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.github.ums.entity.UmsUser"
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.github.common.entity.UmsUser"
             useGeneratedKeys="true">
         insert into t_ums_user
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -114,7 +114,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.github.ums.entity.UmsUser">
+    <update id="updateByPrimaryKeySelective" parameterType="com.github.common.entity.UmsUser">
         update t_ums_user
         <set>
             <if test="username != null">
@@ -153,7 +153,7 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.github.ums.entity.UmsUser">
+    <update id="updateByPrimaryKey" parameterType="com.github.common.entity.UmsUser">
     update t_ums_user
     set username = #{username,jdbcType=VARCHAR},
       `password` = #{password,jdbcType=VARCHAR},
@@ -168,7 +168,7 @@
       sort = #{sort,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
-    <select id="selectBySelective" parameterType="com.github.ums.entity.UmsUser" resultMap="BaseResultMap">
+    <select id="selectBySelective" parameterType="com.github.common.entity.UmsUser" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from t_ums_user

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.github.ums.mapper.UmsRoleMapper">
-    <resultMap id="BaseResultMap" type="com.github.ums.entity.UmsRole">
+<mapper namespace="com.github.common.mapper.UmsRoleMapper">
+    <resultMap id="BaseResultMap" type="com.github.common.entity.UmsRole">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="rolecode" jdbcType="VARCHAR" property="rolecode"/>
         <result column="rolename" jdbcType="VARCHAR" property="rolename"/>
@@ -26,7 +26,7 @@
     delete from t_ums_role
     where id = #{id,jdbcType=BIGINT}
   </delete>
-    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.github.ums.entity.UmsRole"
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.github.common.entity.UmsRole"
             useGeneratedKeys="true">
     insert into t_ums_role (rolecode, rolename, create_time, 
       update_time, is_delete, `status`, 
@@ -35,7 +35,7 @@
       #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
       #{describe,jdbcType=VARCHAR}, #{sort,jdbcType=BIGINT})
   </insert>
-    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.github.ums.entity.UmsRole"
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.github.common.entity.UmsRole"
             useGeneratedKeys="true">
         insert into t_ums_role
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -91,7 +91,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.github.ums.entity.UmsRole">
+    <update id="updateByPrimaryKeySelective" parameterType="com.github.common.entity.UmsRole">
         update t_ums_role
         <set>
             <if test="rolecode != null">
@@ -121,7 +121,7 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.github.ums.entity.UmsRole">
+    <update id="updateByPrimaryKey" parameterType="com.github.common.entity.UmsRole">
     update t_ums_role
     set rolecode = #{rolecode,jdbcType=VARCHAR},
       rolename = #{rolename,jdbcType=VARCHAR},
@@ -133,7 +133,7 @@
       sort = #{sort,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
-    <select id="selectBySelective" parameterType="com.github.ums.entity.UmsRole" resultMap="BaseResultMap">
+    <select id="selectBySelective" parameterType="com.github.common.entity.UmsRole" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from t_ums_role

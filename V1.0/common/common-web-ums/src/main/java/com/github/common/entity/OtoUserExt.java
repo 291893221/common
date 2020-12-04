@@ -1,4 +1,4 @@
-package com.github.ums.entity;
+package com.github.common.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

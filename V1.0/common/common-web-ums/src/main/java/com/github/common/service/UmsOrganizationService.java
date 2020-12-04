@@ -1,12 +1,11 @@
-package com.github.ums.service;
+package com.github.common.service;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.github.common.service.BaseService;
-import com.github.ums.entity.UmsOrganization;
-import com.github.ums.mapper.UmsOrganizationMapper;
+import com.github.common.entity.UmsOrganization;
+import com.github.common.mapper.UmsOrganizationMapper;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.github.ums.mapper.MtmUserRoleMapper">
-    <resultMap id="BaseResultMap" type="com.github.ums.entity.MtmUserRole">
+<mapper namespace="com.github.common.mapper.MtmUserRoleMapper">
+    <resultMap id="BaseResultMap" type="com.github.common.entity.MtmUserRole">
         <id column="user_id" jdbcType="BIGINT" property="userId"/>
         <id column="role_id" jdbcType="BIGINT" property="roleId"/>
     </resultMap>
@@ -10,11 +10,11 @@
     where user_id = #{userId,jdbcType=BIGINT}
       and role_id = #{roleId,jdbcType=BIGINT}
   </delete>
-    <insert id="insert" parameterType="com.github.ums.entity.MtmUserRole">
+    <insert id="insert" parameterType="com.github.common.entity.MtmUserRole">
     insert into t_mtm_user_role (user_id, role_id)
     values (#{userId,jdbcType=BIGINT}, #{roleId,jdbcType=BIGINT})
   </insert>
-    <insert id="insertSelective" parameterType="com.github.ums.entity.MtmUserRole">
+    <insert id="insertSelective" parameterType="com.github.common.entity.MtmUserRole">
         insert into t_mtm_user_role
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="userId != null">

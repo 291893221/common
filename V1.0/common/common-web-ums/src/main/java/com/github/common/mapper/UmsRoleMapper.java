@@ -1,9 +1,8 @@
-package com.github.ums.mapper;
+package com.github.common.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.github.common.mapper.BaseMapper;
-import com.github.ums.entity.UmsRole;
+import com.github.common.entity.UmsRole;
 
 /**
  * Created by Mybatis Generator 2019/05/17

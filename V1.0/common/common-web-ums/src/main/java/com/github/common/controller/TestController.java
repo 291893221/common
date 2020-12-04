@@ -1,4 +1,4 @@
-package com.github.ums.controller;
+package com.github.common.controller;
 
 import java.util.Arrays;
 
