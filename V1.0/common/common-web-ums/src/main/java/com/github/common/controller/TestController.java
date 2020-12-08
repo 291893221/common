@@ -23,15 +23,16 @@ public class TestController {
 		log.info("entity {}", a);
 		return a;
 	}
-	
+
 	@Test
 	public void junit() {
 		User a = new User();
 		a.setId("1");
-		var list = Arrays.asList(a);
-		list.stream().peek(e -> log.info("a : {}", e));
+		var list = Arrays.asList(a, a, a);
+		list.stream().filter(r -> r.id != null).peek(e -> log.info("a : {}", e)).count();
 	}
 }
+
 @Data
 class User {
 	String id;
