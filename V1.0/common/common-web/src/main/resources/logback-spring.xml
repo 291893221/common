@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
-    <springProperty scope="context" name="contextName" source="spring.application.name" defaultValue="default"/>
+    <springProperty scope="context" name="contextName" source="application.name" defaultValue="default"/>
     <springProperty scope="context" name="logPath" source="log.path" defaultValue="D:/log/default.log"/>
     <property name="log.path" value="${logPath}" />
     <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss} ${contextName} [%thread] [%-5level] %logger [%M]: %line -| %msg%n " />
